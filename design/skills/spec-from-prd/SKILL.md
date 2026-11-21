@@ -16,14 +16,14 @@ Write the spec for one feature, from a PRD or from a few sentences. The spec is 
 
 Read these files before you write anything:
 
-- `design/features/_template/spec.md`: the template. Its the only structure you should exactly follow for create new spec file.
+- `design/features/_template/spec.md`: the template. It is the only structure to follow, exactly, when you create a new spec file.
 - `design/product/product.md`: language, direction (LTR or RTL), platforms.
 - `design/product/persona.md`: who we design for.
 
 ## Step 2: Create the feature folder
 
 - Copy `design/features/_template/` to `design/features/<name>/`.
-- If `design/features/<name>/` already exists and its `spec.md` has content, do **not** overwrite it. Write the new version to `spec.new.md` next to it, and Let know the designer. Never overwrite hand edits.
+- If `design/features/<name>/` already exists and its `spec.md` has content, do **not** overwrite it. Write the new version to `spec.new.md` next to it, and tell the designer. Never overwrite hand edits.
 
 ## Step 3: Fill `spec.md`
 
