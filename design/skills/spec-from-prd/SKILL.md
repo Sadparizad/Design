@@ -39,7 +39,7 @@ Keep every heading from the template, in the same order, even if a section ends 
 | User stories | One row for each user need, in the form: As a <user>, I want <action>, so that <benefit>. IDs are `US-01`, `US-02`, and so on, in order. One need per story. Do not mix two needs in one row. |
 | Acceptance checks | At least one check for each story. Use: Given <situation>, when <action>, then <result>. The "For" column holds the story ID. |
 | States | Keep the template rows. Write "Yes" in "Needed" for each state the stories need. Always think about Empty, Error and Long text. Mark "RTL layout" as needed if `product.md` says the product supports RTL. Add rows for states that are special to this feature. |
-| Strings used | Draft the words for the main screens. One row for each: a key (`feature.area.name`), the text, and where it appears. Also write the same keys to the feature's `strings.json` (or to the central strings file, if `design/agent.md` names one). |
+| Strings used | Draft the words for the main screens. One row for each: a key (`feature.area.name`), the text, and where it appears. Also write the same keys to the feature's `strings.json` (or to the central strings file, if `design/AGENT.md` names one). |
 | Open questions | Everything the PRD leaves unclear. Each row has an owner and a temporary answer, so the work can go on. Use a role (PM, Engineering, Design) when you do not know a name. |
 | Decisions | Only decisions the PRD states clearly, with who and when. If there are none, leave the table with its placeholder row removed. Never invent a decision. |
 
