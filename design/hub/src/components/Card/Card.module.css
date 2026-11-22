@@ -1,0 +1,61 @@
+/* One raised surface in three sizes. The 1px border is drawn inside the box, as Figma draws it,
+   so padding matches the frames exactly. */
+.card {
+  position: relative;
+  display: flex;
+  color: inherit;
+  background: var(--surface-neutral-default);
+  box-shadow:
+    inset 0 0 0 var(--border-b1) var(--border-neutral-secondary),
+    inset 0 calc(var(--edge) * -1) 0 0 var(--effects-shadow-neutral-subtle);
+}
+
+a.card,
+button.card {
+  cursor: pointer;
+}
+
+/* Home tiles: title and description, with an arrow at the bottom corner. */
+.tile {
+  --edge: var(--card-edge-tile);
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: var(--spaces-s15);
+  padding: var(--spaces-s11) var(--spaces-s11) var(--spaces-s12);
+  border-radius: var(--radius-r8);
+}
+
+/* List rows: columns across, arrow at the end. */
+.row {
+  --edge: var(--card-edge-row);
+  align-items: center;
+  gap: var(--spaces-s15);
+  padding: var(--spaces-s8) var(--spaces-s8) var(--spaces-s9) var(--spaces-s10);
+  border-radius: var(--radius-r7);
+}
+
+/* Sidebar entries: flat until selected. */
+.item {
+  composes: label-l4 from global;
+  --edge: var(--card-edge-item);
+  align-items: center;
+  gap: var(--spaces-s15);
+  inline-size: 100%;
+  padding: var(--spaces-s7);
+  border-radius: var(--radius-r6);
+  background: transparent;
+  box-shadow: none;
+}
+
+.item:hover {
+  background: var(--surface-neutral-tertiary);
+}
+
+.itemSelected,
+.itemSelected:hover {
+  background: var(--surface-neutral-default);
+  box-shadow:
+    inset 0 0 0 var(--border-b1) var(--border-neutral-secondary),
+    inset 0 calc(var(--edge) * -1) 0 0 var(--effects-shadow-neutral-subtle);
+}

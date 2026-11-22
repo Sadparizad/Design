@@ -1,0 +1,43 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s12);
+  padding-block: var(--spaces-s15);
+}
+
+.heading {
+  composes: display-d6 from global;
+  color: var(--text-neutral-primary);
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s15);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s8);
+}
+
+/* Two cards to a row in the 800px column, one when the window is narrow. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--layout-card-min), 1fr));
+  gap: var(--spaces-s8);
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+/* Holds a card's place while its text is still being read. */
+.skeleton {
+  min-block-size: var(--layout-card-height);
+  border-radius: var(--radius-r8);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+  opacity: 0.6;
+}
