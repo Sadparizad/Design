@@ -5,7 +5,7 @@
  */
 import fs from "node:fs/promises";
 import path from "node:path";
-import { describe, cleanValue, firstHeading } from "./markdown.ts";
+import { cleanValue, declaredDescription, describe, firstHeading } from "./markdown.ts";
 import { parseFrontMatter } from "./frontmatter.ts";
 import { readRepoStatus } from "./repoStatus.ts";
 import { assertName, defaultDesignRoot, resolveInside, toPosix } from "./root.ts";
@@ -165,7 +165,13 @@ export function createDataLayer(designRoot: string = defaultDesignRoot()): DataL
 
   async function entryFor(kind: DocumentKind, name: string, rel: string): Promise<DocumentEntry> {
     const text = await readTextOrNull(at(rel));
-    return { kind, name, path: rel, description: text === null ? null : describe(text) };
+    return {
+      kind,
+      name,
+      path: rel,
+      description: text === null ? null : describe(text),
+      declaredDescription: text === null ? null : declaredDescription(text),
+    };
   }
 
   async function listDocuments(kind: DocumentKind): Promise<DocumentEntry[]> {

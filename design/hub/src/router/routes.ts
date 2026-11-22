@@ -127,7 +127,7 @@ export function pageFor(route: Route): PageMeta {
       return make(
         trail(HOME_CRUMB, [LABELS.history, "#/history"]),
         "Design history",
-        "Every feature, its status, its versions and the variants we tried.",
+        "Every feature, its status and the variants we tried.",
       );
     case "feature":
       return make(

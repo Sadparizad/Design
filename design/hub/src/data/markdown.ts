@@ -43,12 +43,35 @@ export function firstLine(text: string): string | null {
   return null;
 }
 
+/** The front matter `description` alone, with no heading or first-line fallback. */
+export function declaredDescription(text: string): string | null {
+  return cleanValue(parseFrontMatter(text).data.description);
+}
+
 /**
  * Card description for a markdown document: the front matter `description`, else the
  * first heading, else the first line, else null.
  */
 export function describe(text: string): string | null {
-  return (
-    cleanValue(parseFrontMatter(text).data.description) ?? firstHeading(text) ?? firstLine(text)
-  );
+  return declaredDescription(text) ?? firstHeading(text) ?? firstLine(text);
+}
+
+/**
+ * The first link in a document, outside code fences: a `[label](url)` or a bare http(s) URL.
+ * A template placeholder such as `<link>` is not a link. Null when there is none.
+ */
+export function firstLink(text: string): string | null {
+  let fenced = false;
+  for (const line of visibleBody(text).split(/\r?\n/)) {
+    if (/^\s*(```|~~~)/.test(line)) {
+      fenced = !fenced;
+      continue;
+    }
+    if (fenced) continue;
+    const md = /\[[^\]]*\]\(\s*<?(https?:\/\/[^\s)>]+)>?[^)]*\)/i.exec(line);
+    if (md) return md[1];
+    const bare = /\bhttps?:\/\/[^\s<>()\[\]"'`]+/i.exec(line);
+    if (bare) return bare[0].replace(/[.,;:!?]+$/, "");
+  }
+  return null;
 }

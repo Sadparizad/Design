@@ -17,6 +17,8 @@ interface SelectProps {
   label: string;
   /** Show the filter icon at the start, as the history page does. */
   filter?: boolean;
+  /** field: the full-width input look. pill: a compact rounded control, as on the home page. */
+  variant?: "field" | "pill";
 }
 
 export function Select({
@@ -26,17 +28,22 @@ export function Select({
   placeholder = "Select",
   label,
   filter = false,
+  variant = "field",
 }: SelectProps) {
   const selected = options.find((o) => o.value === value);
   return (
-    <div className={field.field}>
-      <div className={styles.body}>
+    <div className={variant === "pill" ? `${field.field} ${field.pill}` : field.field}>
+      <div className={variant === "pill" ? `${styles.body} ${styles.bodyPill}` : styles.body}>
         {filter && (
           <span className={styles.icon}>
             <Icon name="funnelSimple" />
           </span>
         )}
-        <span className={styles.value}>{selected ? selected.label : placeholder}</span>
+        <span
+          className={`${styles.value} ${variant === "pill" ? styles.valuePill : styles.valueField}`}
+        >
+          {selected ? selected.label : placeholder}
+        </span>
         <Icon name="caretDownTertiary" />
       </div>
       <select

@@ -108,6 +108,12 @@
   --card-edge-tile: 6px;
   --card-edge-row: 4px;
   --card-edge-item: 3px;
+  /* Step number circle in the workflow paragraph (node 506:14159): `border-2`, 24x24. */
+  --step-marker-border: 2px;
+  --step-marker-size: 24px;
+  /* Blurred orange glow behind the workflow (node 506:14263): 480x480, blur 250px. */
+  --glow-size: 480px;
+  --glow-blur: 250px;
 
   /* ── Not Figma variables: layout sizes read from the 1440px frames ── */
   --layout-header: 64px;
@@ -115,6 +121,9 @@
   --layout-column: 800px;
   --layout-sidebar: 216px;
   --layout-document: 544px;
+  --layout-card-height: 194px;
+  /* Narrowest a card gets before the grid drops to one per row. Two fit the 800px column. */
+  --layout-card-min: 320px;
   --layout-icon-button: 32px;
   /* The hero description's measure. The frame sets this text to hug at 327px so it falls on
      two balanced lines; this is the nearest width that does the same without a hard break. */

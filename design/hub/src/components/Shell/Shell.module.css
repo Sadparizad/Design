@@ -3,6 +3,8 @@
   flex-direction: column;
   min-block-size: 100dvh;
   background: var(--surface-neutral-secondary);
+  /* The home glow is wider than a phone; clip it sideways so the page never scrolls across. */
+  overflow-x: clip;
 }
 
 /* ── Header ─────────────────────────────────────────────────── */

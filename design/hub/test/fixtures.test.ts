@@ -81,6 +81,15 @@ test("listDocuments: files and skills, with descriptions and fallbacks", async (
       ["gamma", null],
     ],
   );
+  // The declared description is the front matter value alone: no heading or first-line fallback.
+  assert.deepEqual(
+    skills.map((s) => [s.name, s.declaredDescription]),
+    [
+      ["alpha", "Does the first thing."],
+      ["beta", null],
+      ["gamma", null],
+    ],
+  );
 });
 
 test("readFeature: strings, variants.json, variants/ contents, and a broken JSON file", async () => {
