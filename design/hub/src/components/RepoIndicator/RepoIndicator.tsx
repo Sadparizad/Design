@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
+import { STATIC } from "../../lib/staticMode.ts";
 import { useRepoStatus, type RepoState } from "../../api/repoStatus.ts";
 import { Icon } from "../Icon.tsx";
 import type { IconName } from "../icons.ts";
@@ -36,6 +37,10 @@ function describe(state: RepoState): View {
 
 /** The 32x32 button at the far right of the header. Shows the branch and whether work is unsaved. */
 export function RepoIndicator() {
+  return STATIC ? null : <LocalRepoIndicator />;
+}
+
+function LocalRepoIndicator() {
   const { state, refresh } = useRepoStatus();
   const [open, setOpen] = useState(false);
   const wrap = useRef<HTMLDivElement>(null);

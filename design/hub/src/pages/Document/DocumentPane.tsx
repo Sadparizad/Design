@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDocument } from "../../api/documents.ts";
+import { STATIC } from "../../lib/staticMode.ts";
 import { Button } from "../../components/Button/Button.tsx";
 import { CodeEditor } from "../../components/CodeEditor/CodeEditor.tsx";
 import { Markdown } from "../../components/Markdown/Markdown.tsx";
@@ -13,7 +14,7 @@ type Mode = "preview" | "edit";
 
 const MODES: TabItem[] = [
   { id: "preview", label: "Preview", icon: "eye" },
-  { id: "edit", label: "Edit", icon: "codeSimple" },
+  ...(STATIC ? [] : [{ id: "edit", label: "Edit", icon: "codeSimple" } as TabItem]),
 ];
 
 interface PaneProps {
