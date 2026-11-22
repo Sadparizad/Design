@@ -1,0 +1,155 @@
+/* Document pane, from Files / Preview (506:15617) and Files / Edit (506:16673). */
+.itemLabel {
+  flex: 1;
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s17);
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+/* The editor sits closer to its controls than the preview sits to its. */
+.paneEdit {
+  gap: var(--spaces-s10);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s13);
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s2);
+}
+
+.title {
+  composes: display-d6 from global;
+  color: var(--text-neutral-primary);
+  overflow-wrap: anywhere;
+}
+
+.description {
+  composes: body-b4 from global;
+  color: var(--text-neutral-secondary);
+}
+
+.controlsGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s6);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spaces-s8);
+}
+
+.note {
+  composes: body-b4 from global;
+  color: var(--text-neutral-tertiary);
+}
+
+.linkButton {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-brand-primary);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: var(--spaces-s1);
+}
+
+/* Save states: plain text for now. They have no design. */
+.notice {
+  composes: body-b4 from global;
+  color: var(--text-neutral-secondary);
+}
+
+.noticeSaved {
+  color: var(--text-neutral-tertiary);
+}
+
+.noticeFailed {
+  color: var(--text-brand-primary);
+}
+
+.conflict {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s6);
+  padding: var(--spaces-s8);
+  border-radius: var(--radius-r8);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-brand-strong);
+}
+
+.conflictTitle {
+  composes: label-l3 from global;
+  margin: 0;
+  font-weight: inherit;
+  color: var(--text-neutral-primary);
+}
+
+.conflictText {
+  composes: body-b4 from global;
+  margin: 0;
+  color: var(--text-neutral-secondary);
+}
+
+.versions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--spaces-s6);
+}
+
+.version {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s3);
+  min-inline-size: 0;
+}
+
+.versionTitle {
+  composes: label-l4 from global;
+  margin: 0;
+  font-weight: inherit;
+  color: var(--text-neutral-primary);
+}
+
+.versionText {
+  composes: label-l5 from global;
+  margin: 0;
+  padding: var(--spaces-s6);
+  max-block-size: 240px;
+  overflow: auto;
+  border-radius: var(--radius-r6);
+  background: var(--surface-neutral-secondary);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+  font-family: var(--font-family-mono);
+  color: var(--text-neutral-secondary);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 2;
+}
+
+.versionNote {
+  composes: body-b4 from global;
+  margin: 0;
+  color: var(--text-neutral-tertiary);
+}
+
+.conflictActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spaces-s4);
+}

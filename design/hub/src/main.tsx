@@ -9,6 +9,10 @@ import "./styles/base.css";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { App } from "./App.tsx";
+import { installLeaveGuard } from "./router/leaveGuard.ts";
+
+// Before React renders: the guard has to hear `hashchange` ahead of the router.
+installLeaveGuard();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

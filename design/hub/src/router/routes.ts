@@ -105,6 +105,7 @@ function trail(...items: Array<[label: string, href: string]>): Crumb[] {
 }
 
 const HOME_CRUMB: [string, string] = [LABELS.home, "#/"];
+const SKILLS_DESCRIPTION = "Things that help you in building.";
 
 /** Copy for the title band, and the breadcrumb trail, for each route. */
 export function pageFor(route: Route): PageMeta {
@@ -149,8 +150,17 @@ export function pageFor(route: Route): PageMeta {
         "Three short files that give agents context: how to work here, and what the product is.",
       );
     case "skills":
-    case "skill":
-      return make(trail(HOME_CRUMB, [LABELS.skills, "#/skills"]), "Skills", null);
+      return make(trail(HOME_CRUMB, [LABELS.skills, "#/skills"]), "Skills", SKILLS_DESCRIPTION);
+    case "skill": {
+      // "Skills" is the same screen as a skill (the list is its sidebar), so the back button
+      // goes to the home page rather than to a link that would only reopen this page.
+      const page = make(
+        trail(HOME_CRUMB, [LABELS.skills, "#/skills"], [route.params.name, ""]),
+        "Skills",
+        SKILLS_DESCRIPTION,
+      );
+      return { ...page, back: { label: LABELS.home, href: "#/" } };
+    }
     case "notFound":
       return make(
         trail(HOME_CRUMB, ["Page not found", ""]),

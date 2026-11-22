@@ -62,6 +62,16 @@ test("pageFor: crumbs follow the route, and the back button is the crumb before 
   const file = pageFor(matchRoute("#/files/product"));
   assert.deepEqual(file.crumbs.map((c) => c.label), [LABELS.home, LABELS.files]);
   assert.equal(file.back?.href, "#/");
+
+  const skill = pageFor(matchRoute("#/skills/spec-from-prd"));
+  assert.deepEqual(
+    skill.crumbs.map((c) => c.label),
+    [LABELS.home, LABELS.skills, "spec-from-prd"],
+  );
+  assert.equal(skill.crumbs[1].href, "#/skills");
+  assert.equal(skill.back?.href, "#/", "back skips the Skills crumb: it is this same screen");
+  assert.equal(skill.title, "Skills");
+  assert.equal(skill.description, "Things that help you in building.");
 });
 
 test("pageFor: only the home page is a hero", () => {

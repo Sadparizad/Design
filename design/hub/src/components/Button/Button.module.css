@@ -1,0 +1,37 @@
+/* Button, node 513:16878: 14px / 16px padding, 14px radius, 14/16 label. */
+.button {
+  composes: label-l4 from global;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spaces-s2);
+  padding: var(--spaces-s7) var(--spaces-s8);
+  border: 0;
+  border-radius: var(--radius-r7);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.text {
+  padding-block: var(--spaces-s1);
+}
+
+.primary {
+  background: var(--surface-neutral-strong);
+  color: var(--text-neutral-mode);
+}
+
+.secondary {
+  background: var(--surface-neutral-default);
+  color: var(--text-neutral-primary);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--surface-neutral-tertiary);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

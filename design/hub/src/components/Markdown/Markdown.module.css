@@ -1,0 +1,160 @@
+/* Preview styles, read from Files / Preview (506:15438) and Skills / Preview (513:17017):
+   18/24 headings in the primary colour, 14/24 body in the secondary colour, discs indented
+   21px, 6px between a heading and what follows, 48px between sections. */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s3);
+  color: var(--text-neutral-secondary);
+}
+
+.heading {
+  composes: label-l2 from global;
+  margin: 0;
+  font-weight: inherit;
+  color: var(--text-neutral-primary);
+  overflow-wrap: anywhere;
+}
+
+/* A new section starts at every h1 / h2: 48px above it, except at the very top. */
+.major:not(:first-child) {
+  margin-block-start: calc(var(--spaces-s17) - var(--spaces-s3));
+}
+
+/* The frames draw one heading size. Deeper headings step down to the 16px label so they
+   still read as headings, with a smaller gap above. */
+.minor {
+  composes: label-l3 from global;
+}
+
+.minor:not(:first-child) {
+  margin-block-start: calc(var(--spaces-s11) - var(--spaces-s3));
+}
+
+.paragraph {
+  composes: body-b4 from global;
+  overflow-wrap: anywhere;
+}
+
+/* The frame leaves 14px between an intro line and the list under it. */
+.paragraph + .list {
+  margin-block-start: calc(var(--spaces-s7) - var(--spaces-s3));
+}
+
+.list {
+  composes: body-b4 from global;
+  margin: 0;
+  padding-inline-start: var(--list-indent);
+}
+
+.bullets {
+  list-style: disc;
+}
+
+.ordered {
+  list-style: decimal;
+}
+
+.list .list {
+  margin-block-start: 0;
+}
+
+.list .bullets {
+  list-style: circle;
+}
+
+.list li {
+  overflow-wrap: anywhere;
+}
+
+/* A checklist item hangs its text under itself, not under the box. The box sits in the indent
+   the bullet would have used: its negative start margin and its end margin cancel out. */
+.task {
+  list-style: none;
+  margin-inline-start: calc(var(--list-indent) * -1);
+  padding-inline-start: var(--list-indent);
+}
+
+.checkbox {
+  inline-size: var(--spaces-s7);
+  block-size: var(--spaces-s7);
+  margin-block: 0;
+  margin-inline: calc(var(--list-indent) * -1) calc(var(--list-indent) - var(--spaces-s7));
+  vertical-align: middle;
+}
+
+.inlineCode {
+  font-family: var(--font-family-mono);
+  font-size: 0.9em;
+  padding: 0 var(--spaces-s2);
+  border-radius: var(--spaces-s2);
+  background: var(--surface-neutral-tertiary);
+  color: var(--text-neutral-primary);
+  overflow-wrap: anywhere;
+}
+
+.codeBlock {
+  composes: label-l5 from global;
+  margin: 0;
+  padding: var(--spaces-s6);
+  overflow-x: auto;
+  border-radius: var(--radius-r6);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+  font-family: var(--font-family-mono);
+  color: var(--text-neutral-secondary);
+  tab-size: 2;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border-radius: var(--radius-r6);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+  background: var(--surface-neutral-default);
+}
+
+.table {
+  composes: body-b4 from global;
+  inline-size: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: var(--spaces-s4) var(--spaces-s6);
+  text-align: start;
+  vertical-align: top;
+  border-block-start: var(--border-b1) solid var(--border-neutral-secondary);
+  /* break-word, not anywhere: the column keeps room for its longest word. */
+  overflow-wrap: break-word;
+}
+
+.table th {
+  color: var(--text-neutral-primary);
+  background: var(--surface-neutral-secondary);
+  border-block-start: 0;
+  white-space: nowrap;
+}
+
+.quote {
+  margin: 0;
+  padding-inline-start: var(--spaces-s8);
+  border-inline-start: calc(var(--border-b1) * 2) solid var(--border-neutral-secondary);
+  color: var(--text-neutral-tertiary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s3);
+}
+
+.rule {
+  inline-size: 100%;
+  margin-block: var(--spaces-s4);
+  border: 0;
+  border-block-start: var(--border-b1) solid var(--border-neutral-secondary);
+}
+
+.link {
+  color: var(--text-brand-primary);
+  text-decoration: underline;
+  text-underline-offset: var(--spaces-s1);
+}

@@ -41,6 +41,7 @@
   --font-family-display: "Inter Display"; /* Font Family/Display */
   --font-weight-medium: 500; /* Font Weight/Medium */
 
+  --font-size-f3: 12px; /* Font Size/F3 */
   --font-size-f4: 14px; /* Font Size/F4 */
   --font-size-f5: 16px; /* Font Size/F5 */
   --font-size-f6: 18px; /* Font Size/F6 */
@@ -78,12 +79,15 @@
   --surface-neutral-default: #ffffff; /* Surface/Neutral/Default */
   --surface-neutral-secondary: #f8f7f6; /* Surface/Neutral/Secondary */
   --surface-neutral-tertiary: #ece9e6; /* Surface/Neutral/Tertiary */
+  --surface-neutral-strong: #000000; /* Surface/Neutral/Strong */
   --surface-brand-strong: #fa541c; /* Surface/Brand/Strong */
 
   --text-neutral-primary: #000000; /* Text/Neutral/Primary */
   --text-neutral-secondary: #43392f; /* Text/Neutral/Secondary */
   --text-neutral-tertiary: #806d59; /* Text/Neutral/Tertiary */
   --text-neutral-subtle: #bbb0a5; /* Text/Neutral/Subtle */
+  --text-neutral-subtle-hover: #9e8e7f; /* Text/Neutral/Subtle Hover */
+  --text-neutral-mode: #ffffff; /* Text/Neutral/Mode */
   --text-brand-primary: #fa541c; /* Text/Brand/Primary */
 
   --border-neutral-secondary: #ece9e6; /* Border/Neutral/Secondary */
@@ -106,6 +110,12 @@
   /* ── Not Figma variables: found hardcoded in the frames ────── */
   /* Raised segment of the Tab component (Files / Preview, node 506:16382). */
   --shadow-tab-active: 0 2px 4px -2px #10111424;
+  /* Document pages (Files / Edit, nodes 513:16752 and 513:16737). The frames draw the editor in
+     Inter; the brief asks for a monospace body, so the family is not a Figma value. */
+  --font-family-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --list-indent: 21px; /* list items in the Preview frames use ms-[21px] */
+  --editor-gutter-min: 24px; /* line-number column, node 513:16738 */
+  --editor-min-height: 80px;
   /* Bottom edge on Card (node 506:14274 uses #f6f7f8 here, which has no variable;
      the subtle shadow variable is used instead). */
   --card-edge-tile: 6px;
