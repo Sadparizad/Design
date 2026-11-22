@@ -13,6 +13,7 @@
   background: var(--surface-neutral-default);
   box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
   cursor: pointer;
+  transition: background-color var(--motion-hover);
 }
 
 .button:hover {

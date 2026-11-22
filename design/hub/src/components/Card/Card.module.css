@@ -46,6 +46,7 @@ button.card {
   border-radius: var(--radius-r6);
   background: transparent;
   box-shadow: none;
+  transition: background-color var(--motion-hover), box-shadow var(--motion-hover);
 }
 
 .item:hover {

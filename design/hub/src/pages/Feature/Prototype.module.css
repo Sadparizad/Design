@@ -6,17 +6,18 @@
   padding-block: var(--spaces-s23) var(--spaces-s12);
 }
 
+/* Variant and Sizes always share one row. When the row is tight, Variant's chips wrap inside
+   their own track and Sizes keeps its width. They only stack on a phone. */
 .filters {
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-start;
   gap: var(--spaces-s8);
 }
 
 .filterVariant {
   display: flex;
-  /* Sized by its chips: when they and Sizes do not fit one row, Sizes drops below. */
-  flex: 1 1 auto;
+  /* Takes what Sizes leaves. */
+  flex: 0 1 auto;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--spaces-s6);
@@ -49,5 +50,11 @@
 @media (max-width: 720px) {
   .summary {
     max-inline-size: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .filters {
+    flex-direction: column;
   }
 }

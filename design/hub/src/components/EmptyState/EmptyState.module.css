@@ -23,8 +23,12 @@
   composes: label-l3 from global;
   margin-block-start: var(--spaces-s5);
   color: var(--text-brand-primary);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--motion-hover);
 }
 
 .action:hover {
-  text-decoration: underline;
+  text-decoration-color: currentColor;
 }

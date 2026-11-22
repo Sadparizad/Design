@@ -60,6 +60,7 @@
   background: var(--surface-neutral-default);
   box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
   cursor: pointer;
+  transition: background-color var(--motion-hover);
 }
 
 .iconButton:hover {
@@ -97,8 +98,17 @@
   text-overflow: ellipsis;
 }
 
-.crumbLink:hover {
+/* The underline is always there, clear until hover, so it fades in instead of popping. */
+.crumbLink {
   text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: color var(--motion-hover), text-decoration-color var(--motion-hover);
+}
+
+.crumbLink:hover {
+  color: var(--text-neutral-primary);
+  text-decoration-color: currentColor;
 }
 
 .separator {
