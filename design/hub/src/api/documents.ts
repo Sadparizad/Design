@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { STATIC, apiUrl } from "../lib/staticMode.ts";
 import type { DocumentEntry, DocumentKind, ReadResult, WriteResult } from "../data/types.ts";
 
 export type Fetched<T> =
@@ -16,8 +17,13 @@ export function useJson<T>(url: string, reload = 0): Fetched<T> {
 
   useEffect(() => {
     const controller = new AbortController();
-    fetch(url, { signal: controller.signal })
+    fetch(apiUrl(url), { signal: controller.signal })
       .then((res) => {
+        // No snapshot file means the file is not in design/, which the server reports as exists: false.
+        if (STATIC && res.status === 404 && url.startsWith("/api/document?")) {
+          const path = new URL(url, "http://x").searchParams.get("path") ?? "";
+          return { path, exists: false, text: "", modifiedAt: null } as T;
+        }
         if (!res.ok) throw new Error(String(res.status));
         return res.json() as Promise<T>;
       })
@@ -73,7 +79,7 @@ export function useDocument(path: string): Fetched<ReadResult> {
 
 /** Read one file now (not a hook). Throws when the server cannot be reached or answers an error. */
 export async function readDocumentNow(path: string, signal?: AbortSignal): Promise<ReadResult> {
-  const res = await fetch(`/api/document?path=${encodeURIComponent(path)}`, { signal });
+  const res = await fetch(apiUrl(`/api/document?path=${encodeURIComponent(path)}`), { signal });
   if (!res.ok) throw new Error(String(res.status));
   return (await res.json()) as ReadResult;
 }

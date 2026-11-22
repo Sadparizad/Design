@@ -23,6 +23,8 @@ function designHubApi(): Plugin {
 }
 
 export default defineConfig({
+  // "/Design/" on GitHub Pages (set in the workflow); "/" for the local Hub.
+  base: process.env.VITE_BASE ?? "/",
   plugins: [react(), designHubApi()],
   // Local only: this server can write files, so it is not exposed to the network.
   server: { host: "127.0.0.1" },

@@ -11,6 +11,7 @@
     "start": "node bin/hub.mjs",
     "build": "vite build",
     "preview": "vite preview",
+    "snapshot": "node --experimental-strip-types --no-warnings=ExperimentalWarning scripts/snapshot.ts",
     "test": "node --experimental-strip-types --no-warnings=ExperimentalWarning --test \"test/**/*.test.ts\"",
     "typecheck": "tsc --noEmit"
   },
