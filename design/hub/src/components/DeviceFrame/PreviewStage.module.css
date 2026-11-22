@@ -1,0 +1,22 @@
+/* Frame 500:33788: the frames sit 20px apart and are centred in the window. */
+.stage {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--spaces-s10);
+  inline-size: 100%;
+}
+
+/* Takes the scaled size, because a transform does not change the box it is applied to. */
+.slot {
+  position: relative;
+  flex: none;
+}
+
+.scaled {
+  position: absolute;
+  inset-block-start: 0;
+  left: 0;
+  inline-size: max-content;
+  transform-origin: top left;
+}

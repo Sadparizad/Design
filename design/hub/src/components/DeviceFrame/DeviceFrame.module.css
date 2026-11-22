@@ -1,0 +1,58 @@
+/* Frames 500:33789 (mobile) and 500:33792 (desktop). */
+.frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spaces-s1);
+  inline-size: max-content;
+  padding: var(--spaces-s1) var(--spaces-s2) var(--spaces-s2);
+  border-radius: var(--radius-r10);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  inline-size: 100%;
+  padding: var(--frame-bar-padding-block) var(--frame-bar-padding-inline);
+}
+
+.time {
+  font-weight: 600;
+  font-size: 12.8px;
+  line-height: var(--line-height-l2);
+  color: var(--text-neutral-primary);
+}
+
+.glyphs {
+  display: flex;
+  align-items: flex-end;
+  gap: 6.4px;
+}
+
+.address {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--frame-bar-gap);
+}
+
+/* The screen a variant renders into. Empty on purpose: it shows the page grey until one does. */
+.screen {
+  position: relative;
+  flex: none;
+  overflow: hidden;
+  border-radius: var(--radius-r8);
+  background: var(--surface-neutral-secondary);
+}
+
+.mobile .screen {
+  inline-size: var(--frame-mobile-width);
+  block-size: var(--frame-mobile-height);
+}
+
+.desktop .screen {
+  inline-size: var(--frame-desktop-width);
+  block-size: var(--frame-desktop-height);
+}

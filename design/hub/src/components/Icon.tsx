@@ -1,4 +1,4 @@
-import { icons, type IconName } from "./icons.ts";
+import { icons, type IconDef, type IconName } from "./icons.ts";
 
 interface IconProps {
   name: IconName;
@@ -7,6 +7,16 @@ interface IconProps {
 
 /** A decorative icon. Put the meaning in the label of the control that holds it. */
 export function Icon({ name, className }: IconProps) {
-  const { src, size } = icons[name];
-  return <img src={src} width={size} height={size} alt="" aria-hidden="true" className={className} />;
+  const def: IconDef = icons[name];
+  const { src, size } = def;
+  return (
+    <img
+      src={src}
+      width={def.width ?? size}
+      height={def.height ?? size}
+      alt=""
+      aria-hidden="true"
+      className={className}
+    />
+  );
 }

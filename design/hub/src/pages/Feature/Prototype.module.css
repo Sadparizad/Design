@@ -1,0 +1,53 @@
+/* Frame 500:33776: filters, 48px, the summary; 80px above and 28px below. */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s17);
+  padding-block: var(--spaces-s23) var(--spaces-s12);
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--spaces-s8);
+}
+
+.filterVariant {
+  display: flex;
+  /* Sized by its chips: when they and Sizes do not fit one row, Sizes drops below. */
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spaces-s6);
+  min-inline-size: 0;
+}
+
+.filterSizes {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spaces-s6);
+}
+
+/* Field labels are 14/16, a little darker than the muted text. */
+.label {
+  composes: label-l4 from global;
+  padding-block: var(--spaces-s1);
+  color: var(--text-neutral-secondary);
+}
+
+/* The mock gives the summary the left half of the column. */
+.summary {
+  composes: body-b4 from global;
+  max-inline-size: 50%;
+  color: var(--text-neutral-tertiary);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 720px) {
+  .summary {
+    max-inline-size: none;
+  }
+}

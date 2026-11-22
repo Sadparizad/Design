@@ -38,3 +38,67 @@
   gap: var(--spaces-s2);
   padding-block: var(--spaces-s1);
 }
+
+/* ── page: the tab bar inside a detail page's title band (frame 500:33396) ── */
+
+.page {
+  gap: var(--spaces-s3);
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.page .tab {
+  padding: var(--spaces-s6) var(--spaces-s8);
+  border-radius: var(--radius-r7);
+  background: var(--surface-neutral-default);
+  color: var(--text-neutral-tertiary);
+}
+
+.page .tab:hover {
+  background: var(--surface-neutral-secondary);
+}
+
+/* The open tab drops to the warm grey and takes a slightly smaller corner, as drawn. */
+.page .tabSelected,
+.page .tabSelected:hover {
+  border-radius: var(--radius-r6);
+  background: var(--surface-neutral-secondary);
+  box-shadow: none;
+  color: var(--text-neutral-secondary);
+}
+
+/* ── filter: the Variant and Sizes tracks (frame 500:33780) ── */
+
+.filter {
+  flex-wrap: wrap;
+  gap: var(--spaces-s3);
+  padding: var(--spaces-s2);
+  border-radius: var(--radius-r7);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+}
+
+.filter .tab {
+  white-space: nowrap;
+  padding: var(--spaces-s4) var(--spaces-s6);
+  border-radius: var(--radius-r5);
+  background: transparent;
+  color: var(--text-neutral-secondary);
+}
+
+.filter.spacious .tab {
+  padding-inline: var(--spaces-s10);
+}
+
+.filter .tab:hover {
+  background: var(--surface-neutral-secondary);
+}
+
+.filter .tabSelected,
+.filter .tabSelected:hover {
+  background: var(--surface-neutral-secondary);
+  box-shadow: none;
+  color: var(--text-neutral-primary);
+}

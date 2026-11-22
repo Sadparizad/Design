@@ -14,7 +14,7 @@ test("listDocuments('files'): AGENT.md first, then product/*.md, nothing deeper"
   const files = await data.listDocuments("files");
   const paths = files.map((f) => f.path);
   assert.equal(paths[0], "AGENT.md");
-  for (const expected of ["product/product.md", "product/persona.md", "product/design.md"]) {
+  for (const expected of ["product/product-prd.md", "product/persona.md", "product/design.md"]) {
     assert.ok(paths.includes(expected), `${expected} should be listed`);
   }
   assert.ok(!paths.some((p) => p.includes("design-system")));
@@ -38,7 +38,7 @@ test("listDocuments: an unknown kind is a bug, not an empty state", async () => 
 });
 
 test("readDocument: real file gives text and a modified time", async () => {
-  const doc = await data.readDocument("product/product.md");
+  const doc = await data.readDocument("product/product-prd.md");
   assert.equal(doc.exists, true);
   assert.equal(typeof doc.modifiedAt, "number");
   assert.match(doc.text, /Mobile 384×760, Desktop 1440×1024/);

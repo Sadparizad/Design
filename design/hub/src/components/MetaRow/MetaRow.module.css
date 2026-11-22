@@ -1,0 +1,24 @@
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spaces-s8);
+  inline-size: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  composes: label-l3 from global;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spaces-s3);
+  color: var(--text-neutral-tertiary);
+  white-space: nowrap;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+}

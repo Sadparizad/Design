@@ -7,6 +7,11 @@
   overflow-x: clip;
 }
 
+/* The Prototype tab sits on white; the other pages on the warm grey. */
+.shellDefault {
+  background: var(--surface-neutral-default);
+}
+
 /* ── Header ─────────────────────────────────────────────────── */
 
 .header {
@@ -126,6 +131,20 @@
   padding-block: var(--spaces-s29) var(--spaces-s31);
 }
 
+/* Detail page: 120px above the metadata, 20px below the tabs (frame 500:33380). */
+.bandDetail {
+  justify-content: flex-start;
+  padding-block: var(--spaces-s28) var(--spaces-s10);
+}
+
+/* The metadata row and the title, 16px apart. */
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s8);
+  inline-size: 100%;
+}
+
 .bandInner {
   display: flex;
   flex-direction: column;
@@ -133,6 +152,10 @@
   gap: var(--spaces-s2);
   inline-size: 100%;
   max-inline-size: var(--layout-column);
+}
+
+.bandInnerDetail {
+  gap: var(--spaces-s22);
 }
 
 .bandInnerHero {
@@ -207,4 +230,11 @@
   inline-size: 100%;
   max-inline-size: var(--layout-column);
   margin-inline: auto;
+}
+
+/* The previews break out of the column and run the width of the window, 24px in from each edge. */
+.wide {
+  /* The body already pads 16px each side; take that back so the frame's 24px is from the edge. */
+  margin-inline: calc(var(--spaces-s8) * -1);
+  padding: var(--spaces-s11);
 }

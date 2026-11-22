@@ -9,13 +9,39 @@ interface TitleBandProps {
   hero?: boolean;
   /** Controls that cross the bottom edge of the band, such as search and a filter. */
   controls?: ReactNode;
+  /** The detail page: a row of facts above the title. */
+  meta?: ReactNode;
+  /** The detail page: the tab bar below the title, inside the band. */
+  tabs?: ReactNode;
 }
 
-export function TitleBand({ title, description, hero = false, controls }: TitleBandProps) {
+export function TitleBand({ title, description, hero = false, controls, meta, tabs }: TitleBandProps) {
   const words = title.split(" ");
-  const band = [styles.band, hero && styles.bandHero, controls && styles.bandWithControls]
+  const detail = Boolean(meta || tabs);
+  const band = [
+    styles.band,
+    hero && styles.bandHero,
+    controls && styles.bandWithControls,
+    detail && styles.bandDetail,
+  ]
     .filter(Boolean)
     .join(" ");
+
+  if (detail) {
+    return (
+      <section className={band} aria-labelledby="page-title">
+        <div className={`${styles.bandInner} ${styles.bandInnerDetail}`}>
+          <div className={styles.head}>
+            {meta}
+            <h1 id="page-title" className={`${styles.title} ${styles.titlePage}`}>
+              {title}
+            </h1>
+          </div>
+          {tabs}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <>
