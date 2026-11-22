@@ -20,6 +20,7 @@
   background: var(--surface-neutral-secondary);
   color: var(--text-neutral-secondary);
   cursor: pointer;
+  transition: background-color var(--motion-hover), color var(--motion-hover), box-shadow var(--motion-hover);
 }
 
 .tab:hover {
@@ -58,6 +59,7 @@
 
 .page .tab:hover {
   background: var(--surface-neutral-secondary);
+  color: var(--text-neutral-secondary);
 }
 
 /* The open tab drops to the warm grey and takes a slightly smaller corner, as drawn. */
@@ -92,8 +94,16 @@
   padding-inline: var(--spaces-s10);
 }
 
+/* Tighter Sizes chips so Variant and Sizes still fit side by side. */
+@media (max-width: 780px) {
+  .filter.spacious .tab {
+    padding-inline: var(--spaces-s6);
+  }
+}
+
 .filter .tab:hover {
   background: var(--surface-neutral-secondary);
+  color: var(--text-neutral-primary);
 }
 
 .filter .tabSelected,

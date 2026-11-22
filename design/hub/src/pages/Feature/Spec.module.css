@@ -49,10 +49,14 @@
 
 .link {
   color: var(--text-brand-primary);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color var(--motion-hover);
 }
 
 .link:hover {
-  text-decoration: underline;
+  text-decoration-color: currentColor;
 }
 
 .pre {
