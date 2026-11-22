@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { EmptyState } from "./components/EmptyState/EmptyState.tsx";
 import { RepoIndicator } from "./components/RepoIndicator/RepoIndicator.tsx";
 import { AppShell } from "./components/Shell/AppShell.tsx";
+import { Home } from "./pages/Home/Home.tsx";
 import { useRoute } from "./router/useRoute.ts";
 
-/** Every route renders the shell with an empty body. Page content comes in later stages. */
+/** Every route renders the shell. The home page has its body; the rest come in later stages. */
 export function App() {
   const { route, page } = useRoute();
 
@@ -15,6 +16,7 @@ export function App() {
 
   return (
     <AppShell page={page} headerEnd={<RepoIndicator />}>
+      {route.id === "home" && <Home />}
       {route.id === "notFound" && (
         <EmptyState
           title="Nothing to show"

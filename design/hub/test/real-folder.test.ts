@@ -28,6 +28,8 @@ test("listDocuments('skills'): a front-matter description, and a stub with none"
   assert.match(byName["spec-from-prd"].description ?? "", /^Turn a PRD/);
   assert.ok(byName["update-design-md"], "the stub skill is listed");
   assert.equal(byName["update-design-md"].description, "update-design-md");
+  assert.match(byName["spec-from-prd"].declaredDescription ?? "", /^Turn a PRD/);
+  assert.equal(byName["update-design-md"].declaredDescription, null);
   assert.equal(byName["spec-from-prd"].path, "skills/spec-from-prd/SKILL.md");
 });
 

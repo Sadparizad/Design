@@ -17,7 +17,10 @@ export interface DocumentEntry {
   name: string;
   /** Path relative to the design/ folder, with forward slashes. */
   path: string;
+  /** The front matter `description`, else the first heading, else the first line. */
   description: string | null;
+  /** The front matter `description` alone. Null when the file declares none. */
+  declaredDescription: string | null;
 }
 
 export interface ReadResult {

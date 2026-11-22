@@ -1,0 +1,82 @@
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s12);
+  padding-block: var(--spaces-s23);
+}
+
+/* A soft orange glow that sits across the edge of the title band, as in the frames. Decoration
+   only: it takes no clicks and is hidden from screen readers. */
+.glow {
+  position: absolute;
+  inset-block-start: calc(var(--glow-size) / -2);
+  inset-inline-start: 50%;
+  translate: -50% 0;
+  inline-size: var(--glow-size);
+  block-size: var(--glow-size);
+  background: linear-gradient(
+    to bottom,
+    var(--surface-neutral-default),
+    var(--surface-brand-strong),
+    var(--surface-neutral-default)
+  );
+  opacity: var(--opacity-o2);
+  filter: blur(var(--glow-blur));
+  pointer-events: none;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spaces-s8);
+}
+
+.heading {
+  composes: display-d6 from global;
+  color: var(--text-neutral-primary);
+}
+
+/* One wrapping paragraph. Step numbers and code chips sit inside the sentence. */
+.text {
+  composes: heading-h4 from global;
+  position: relative;
+  color: var(--text-neutral-tertiary);
+}
+
+.keep {
+  white-space: nowrap;
+}
+
+/* The orange numbered circle: 24px, centred on the 32px line. */
+.step {
+  composes: label-l3 from global;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  inline-size: var(--step-marker-size);
+  block-size: var(--step-marker-size);
+  margin-block-start: var(--spaces-s2);
+  margin-inline: var(--spaces-s2) var(--spaces-s1);
+  vertical-align: top;
+  border: var(--step-marker-border) solid var(--border-brand-strong);
+  border-radius: var(--radius-r99);
+  color: var(--text-brand-primary);
+}
+
+/* A file or skill name: same size as the sentence, on a tinted chip, underlined. */
+.code {
+  display: inline-block;
+  padding-inline: var(--spaces-s4);
+  border-radius: var(--radius-r5);
+  background: var(--surface-neutral-tertiary);
+  color: var(--text-neutral-secondary);
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-underline-position: from-font;
+}
