@@ -1,0 +1,26 @@
+import { Icon } from "../Icon.tsx";
+import type { IconName } from "../icons.ts";
+import styles from "./StatusDot.module.css";
+
+/** The three dot colours in the design system: Icon/Info, Icon/Utility/Yellow, Icon/Utility/Cyan. */
+const DOTS = { blue: "dotBlue", yellow: "dotYellow", cyan: "dotCyan" } as const satisfies Record<
+  string,
+  IconName
+>;
+
+export type StatusTone = keyof typeof DOTS;
+
+interface StatusDotProps {
+  tone: StatusTone;
+  label: string;
+}
+
+/** A coloured dot with its label. The label carries the meaning; the colour only helps. */
+export function StatusDot({ tone, label }: StatusDotProps) {
+  return (
+    <span className={styles.status}>
+      <Icon name={DOTS[tone]} />
+      {label}
+    </span>
+  );
+}

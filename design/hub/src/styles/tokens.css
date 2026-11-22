@@ -1,0 +1,119 @@
+/*
+ * Design tokens. This is the only file in the Hub that holds raw values.
+ *
+ * Every value in the first sections is a Figma variable, read from the three shell frames
+ * (Hub home, Files / Preview, Design history / List). The Figma name sits in each comment.
+ * Only variables those frames use are here; add a row when a later frame needs another.
+ *
+ * The last two sections are NOT Figma variables. They are values the frames use that have
+ * no variable, kept here so nothing is hardcoded in a component.
+ */
+:root {
+  /* ── Spaces (Semantic Numbers) ─────────────────────────────── */
+  --spaces-s0: 0px; /* Spaces/S0 */
+  --spaces-s1: 2px; /* Spaces/S1 */
+  --spaces-s2: 4px; /* Spaces/S2 */
+  --spaces-s3: 6px; /* Spaces/S3 */
+  --spaces-s4: 8px; /* Spaces/S4 */
+  --spaces-s5: 10px; /* Spaces/S5 */
+  --spaces-s6: 12px; /* Spaces/S6 */
+  --spaces-s7: 14px; /* Spaces/S7 */
+  --spaces-s8: 16px; /* Spaces/S8 */
+  --spaces-s9: 18px; /* Spaces/S9 */
+  --spaces-s10: 20px; /* Spaces/S10 */
+  --spaces-s11: 24px; /* Spaces/S11 */
+  --spaces-s12: 28px; /* Spaces/S12 */
+  --spaces-s13: 32px; /* Spaces/S13 */
+  --spaces-s15: 40px; /* Spaces/S15 */
+  --spaces-s17: 48px; /* Spaces/S17 */
+  --spaces-s23: 80px; /* Spaces/S23 */
+  --spaces-s25: 96px; /* Spaces/S25 */
+  --spaces-s26: 104px; /* Spaces/S26 */
+  --spaces-s28: 120px; /* Spaces/S28 */
+  --spaces-s29: 128px; /* Spaces/S29 */
+  --spaces-s30: 136px; /* Spaces/S30 */
+  --spaces-s31: 144px; /* Spaces/S31 */
+  --spaces-s33: 160px; /* Spaces/S33 */
+
+  /* ── Typography ────────────────────────────────────────────── */
+  --font-family-body: "Inter"; /* Font Family/Body */
+  --font-family-display: "Inter Display"; /* Font Family/Display */
+  --font-weight-medium: 500; /* Font Weight/Medium */
+
+  --font-size-f4: 14px; /* Font Size/F4 */
+  --font-size-f5: 16px; /* Font Size/F5 */
+  --font-size-f6: 18px; /* Font Size/F6 */
+  --font-size-f7: 20px; /* Font Size/F7 */
+  --font-size-f9: 28px; /* Font Size/F9 */
+  --font-size-f10: 32px; /* Font Size/F10 */
+  --font-size-f13: 56px; /* Font Size/F13 */
+
+  --line-height-l2: 16px; /* Line Height/L2 */
+  --line-height-l3: 20px; /* Line Height/L3 */
+  --line-height-l4: 24px; /* Line Height/L4 */
+  --line-height-l5: 28px; /* Line Height/L5 */
+  --line-height-l6: 32px; /* Line Height/L6 */
+  --line-height-l10: 48px; /* Line Height/L10 */
+  --line-height-l11: 56px; /* Line Height/L11 */
+  --line-height-l14: 80px; /* Line Height/L14 */
+
+  /* Text styles Display/D2, D5 and D6 all set letter spacing to -1%. */
+  --letter-spacing-display: -0.01em; /* Display/* text styles */
+
+  /* ── Radius ────────────────────────────────────────────────── */
+  --radius-r0: 0px; /* Radius/R0 */
+  --radius-r5: 10px; /* Radius/R5 */
+  --radius-r6: 12px; /* Radius/R6 */
+  --radius-r7: 14px; /* Radius/R7 */
+  --radius-r8: 16px; /* Radius/R8 */
+  --radius-r99: 9999px; /* Radius/R99 (Rounded) */
+
+  /* ── Border width ──────────────────────────────────────────── */
+  --border-b1: 1px; /* Border/B1 */
+
+  /* ── Colour ────────────────────────────────────────────────── */
+  --surface-neutral-default: #ffffff; /* Surface/Neutral/Default */
+  --surface-neutral-secondary: #f8f7f6; /* Surface/Neutral/Secondary */
+  --surface-neutral-tertiary: #ece9e6; /* Surface/Neutral/Tertiary */
+  --surface-brand-strong: #fa541c; /* Surface/Brand/Strong */
+
+  --text-neutral-primary: #000000; /* Text/Neutral/Primary */
+  --text-neutral-secondary: #43392f; /* Text/Neutral/Secondary */
+  --text-neutral-tertiary: #806d59; /* Text/Neutral/Tertiary */
+  --text-neutral-subtle: #bbb0a5; /* Text/Neutral/Subtle */
+  --text-brand-primary: #fa541c; /* Text/Brand/Primary */
+
+  --border-neutral-secondary: #ece9e6; /* Border/Neutral/Secondary */
+  --border-brand-strong: #fa541c; /* Border/Brand/Strong */
+
+  --icon-neutral-secondary: #43392f; /* Icon/Neutral/Secondary */
+  --icon-neutral-tertiary: #806d59; /* Icon/Neutral/Tertiary */
+  --icon-brand-primary: #fa541c; /* Icon/Brand/Primary */
+  --icon-info-primary: #2b7fff; /* Icon/Info/Primary */
+  --icon-utility-yellow-primary: #fe9a00; /* Icon/Utility/Yellow/Primary */
+  --icon-utility-cyan-primary: #00bba7; /* Icon/Utility/Cyan/Primary */
+
+  --opacity-o2: 10%; /* Opacity/O2 */
+
+  /* ── Effects ───────────────────────────────────────────────── */
+  --effects-shadow-neutral-subtle: #0000000d; /* Effects/Shadow/Neutral/Subtle */
+  /* Effect style Shadow/Input/100, both layers. */
+  --shadow-input-100: 0 4px 4px -2px #10111414, 0 2px 4px -2px #10111414;
+
+  /* ── Not Figma variables: found hardcoded in the frames ────── */
+  /* Raised segment of the Tab component (Files / Preview, node 506:16382). */
+  --shadow-tab-active: 0 2px 4px -2px #10111424;
+  /* Bottom edge on Card (node 506:14274 uses #f6f7f8 here, which has no variable;
+     the subtle shadow variable is used instead). */
+  --card-edge-tile: 6px;
+  --card-edge-row: 4px;
+  --card-edge-item: 3px;
+
+  /* ── Not Figma variables: layout sizes read from the 1440px frames ── */
+  --layout-header: 64px;
+  --layout-title-band: 352px;
+  --layout-column: 800px;
+  --layout-sidebar: 216px;
+  --layout-document: 544px;
+  --layout-icon-button: 32px;
+}

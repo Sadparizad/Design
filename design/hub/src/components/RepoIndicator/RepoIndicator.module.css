@@ -1,0 +1,56 @@
+.wrap {
+  position: relative;
+}
+
+.button {
+  display: grid;
+  place-items: center;
+  inline-size: var(--layout-icon-button);
+  block-size: var(--layout-icon-button);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-r5);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--surface-neutral-tertiary);
+}
+
+.panel {
+  position: absolute;
+  inset-block-start: calc(100% + var(--spaces-s2));
+  inset-inline-end: 0;
+  z-index: 20;
+  display: grid;
+  gap: var(--spaces-s2);
+  inline-size: max-content;
+  max-inline-size: calc(100vw - var(--spaces-s8) * 2);
+  padding: var(--spaces-s8);
+  border-radius: var(--radius-r7);
+  background: var(--surface-neutral-default);
+  box-shadow:
+    inset 0 0 0 var(--border-b1) var(--border-neutral-secondary),
+    var(--shadow-input-100);
+}
+
+.label {
+  composes: label-l4 from global;
+  color: var(--text-neutral-tertiary);
+}
+
+.branch {
+  composes: label-l3 from global;
+  color: var(--text-neutral-primary);
+  overflow-wrap: anywhere;
+}
+
+.status {
+  composes: body-b4 from global;
+  display: flex;
+  align-items: center;
+  gap: var(--spaces-s3);
+  color: var(--text-neutral-secondary);
+}

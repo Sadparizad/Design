@@ -1,0 +1,38 @@
+.body {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--spaces-s1);
+  min-inline-size: 0;
+  padding: var(--spaces-s5) var(--spaces-s7) var(--spaces-s5) var(--spaces-s5);
+}
+
+.icon {
+  flex: none;
+  padding-inline-start: var(--spaces-s2);
+}
+
+.value {
+  composes: label-l4 from global;
+  flex: 1;
+  min-inline-size: 0;
+  padding: var(--spaces-s3);
+  color: var(--text-neutral-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The real <select> sits invisibly on top, so the browser's own list, keyboard handling and
+   screen reader support all work. */
+.native {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: inherit;
+  opacity: 0;
+  cursor: pointer;
+}

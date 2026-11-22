@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--surface-neutral-secondary);
+  color: var(--text-neutral-primary);
+  font-family: var(--font-family-body), var(--font-fallback);
+  font-size: var(--font-size-f5);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-l3);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  display: block;
+}
+
+:focus-visible {
+  outline: calc(var(--border-b1) * 2) solid var(--border-brand-strong);
+  outline-offset: var(--spaces-s1);
+}

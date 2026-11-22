@@ -1,0 +1,26 @@
+/* The 800px column split into a 216px sidebar, a 40px gap and a 544px document. */
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spaces-s15);
+  padding-block: var(--spaces-s15);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s4);
+  flex: none;
+  align-self: stretch;
+  inline-size: var(--layout-sidebar);
+  padding-inline-end: var(--spaces-s15);
+  border-inline-end: var(--border-b1) solid var(--border-neutral-secondary);
+}
+
+.document {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s17);
+  flex: 1;
+  min-inline-size: 0;
+}

@@ -1,0 +1,204 @@
+.shell {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100dvh;
+  background: var(--surface-neutral-secondary);
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, var(--layout-column)) 1fr;
+  align-items: center;
+  block-size: var(--layout-header);
+  padding-inline: var(--spaces-s8);
+  background: var(--surface-neutral-secondary);
+  border-block-end: var(--border-b1) solid var(--border-neutral-secondary);
+}
+
+.start {
+  justify-self: start;
+}
+
+.end {
+  position: relative;
+  justify-self: end;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spaces-s4);
+  min-inline-size: 0;
+}
+
+/* The mark is drawn rotated a quarter turn in Figma. */
+.logo {
+  flex: none;
+  transform: rotate(-90deg);
+}
+
+.iconButton {
+  display: grid;
+  place-items: center;
+  flex: none;
+  inline-size: var(--layout-icon-button);
+  block-size: var(--layout-icon-button);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-r5);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: var(--surface-neutral-tertiary);
+}
+
+/* ── Breadcrumb ─────────────────────────────────────────────── */
+
+.nav {
+  min-inline-size: 0;
+}
+
+.crumbs {
+  composes: label-l3 from global;
+  display: flex;
+  align-items: center;
+  gap: var(--spaces-s3);
+  min-inline-size: 0;
+  color: var(--text-neutral-tertiary);
+  white-space: nowrap;
+}
+
+/* The list item adds no box of its own; it only passes its colour to the crumb inside. */
+.item {
+  display: contents;
+}
+
+.item:first-child {
+  color: var(--text-neutral-primary);
+}
+
+.crumb {
+  min-inline-size: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crumbLink:hover {
+  text-decoration: underline;
+}
+
+.separator {
+  flex: none;
+}
+
+/* ── Title band ─────────────────────────────────────────────── */
+
+.band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* 352px in the frames; grows instead of clipping when a title wraps at a narrow width. */
+  min-block-size: var(--layout-title-band);
+  padding-inline: var(--spaces-s8);
+  background: var(--surface-neutral-default);
+  border-block-end: var(--border-b1) solid var(--border-neutral-secondary);
+}
+
+/* The home band has no rule under it. */
+.bandHero {
+  border-block-end: 0;
+}
+
+/* With controls crossing the bottom edge the title sits a little higher. */
+.bandWithControls {
+  justify-content: flex-start;
+  padding-block: var(--spaces-s29) var(--spaces-s31);
+}
+
+.bandInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spaces-s2);
+  inline-size: 100%;
+  max-inline-size: var(--layout-column);
+}
+
+.bandInnerHero {
+  align-items: center;
+  gap: var(--spaces-s4);
+  text-align: center;
+}
+
+.title {
+  color: var(--text-neutral-primary);
+  inline-size: 100%;
+}
+
+.titlePage {
+  composes: display-d5 from global;
+}
+
+.titleHero {
+  composes: display-d2 from global;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spaces-s3);
+}
+
+.description {
+  color: var(--text-neutral-tertiary);
+  inline-size: 100%;
+}
+
+.descriptionPage {
+  composes: label-l3 from global;
+}
+
+.descriptionHero {
+  composes: body-b3 from global;
+  text-wrap: balance;
+}
+
+/* The controls row overlaps the bottom edge of the band by one S11. */
+.controls {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  margin-block-start: calc(var(--spaces-s11) * -1);
+  padding-inline: var(--spaces-s8);
+  pointer-events: none;
+}
+
+.controlsInner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spaces-s8);
+  inline-size: 100%;
+  max-inline-size: var(--layout-column);
+  pointer-events: auto;
+}
+
+/* ── Body ───────────────────────────────────────────────────── */
+
+.body {
+  flex: 1;
+  padding-inline: var(--spaces-s8);
+  padding-block-end: var(--spaces-s33);
+}
+
+.column {
+  inline-size: 100%;
+  max-inline-size: var(--layout-column);
+  margin-inline: auto;
+}
