@@ -1,0 +1,79 @@
+/* Controls cross the bottom edge of the title band: search 272px, status 168px (frame 506:15339). */
+/* 272px when there is room; shrinks beside the select on a narrow window. */
+.search {
+  flex: 0 1 272px;
+  min-inline-size: 0;
+}
+
+.select {
+  inline-size: 168px;
+  flex: none;
+}
+
+/* Rows start 48px under the controls and sit 12px apart (frame 500:33450). */
+.body {
+  padding-block-start: var(--spaces-s17);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* name and version, date range, status, arrow: 20px in, 16px out, 40px apart. */
+.row {
+  composes: label-l3 from global;
+  inline-size: 100%;
+}
+
+.name {
+  flex: 0 1 320px;
+  min-inline-size: 0;
+  color: var(--text-neutral-primary);
+  overflow-wrap: anywhere;
+}
+
+.dates,
+.status {
+  flex: 1 1 0;
+  min-inline-size: 0;
+  color: var(--text-neutral-tertiary);
+}
+
+.status {
+  display: flex;
+}
+
+.row > :last-child {
+  flex: none;
+  margin-inline-start: auto;
+}
+
+/* Too narrow for four columns: the name takes a line to itself, the rest sit beneath it. */
+@media (max-width: 640px) {
+  .row {
+    flex-wrap: wrap;
+    gap: var(--spaces-s3) var(--spaces-s8);
+  }
+
+  .name {
+    flex-basis: calc(100% - var(--spaces-s11) - var(--spaces-s8));
+  }
+
+  .dates,
+  .status {
+    flex: 0 1 auto;
+  }
+}
+
+.skeleton {
+  block-size: 58px;
+  border-radius: var(--radius-r7);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+  opacity: 0.6;
+}

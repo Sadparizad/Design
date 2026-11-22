@@ -9,6 +9,10 @@ export interface FeatureSummary {
   status: string | null;
   owner: string | null;
   preview: string | null;
+  /** When work began, from the README front matter `started`. Null when not set. */
+  started: string | null;
+  /** When it shipped, from the README front matter `shipped`. Null means still open. */
+  shipped: string | null;
 }
 
 export interface DocumentEntry {

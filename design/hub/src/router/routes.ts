@@ -62,6 +62,12 @@ export function pathFromHash(hash: string): string {
   return path.length > 1 ? path.replace(/\/+$/, "") || "/" : path;
 }
 
+/** The query part of a hash: "#/history/x?tab=prototype" gives tab=prototype. */
+export function queryFromHash(hash: string): URLSearchParams {
+  const at = hash.indexOf("?");
+  return new URLSearchParams(at >= 0 ? hash.slice(at + 1) : "");
+}
+
 export function matchRoute(hash: string): Route {
   const parts = pathFromHash(hash).split("/").slice(1);
   for (const { id, pattern } of PATTERNS) {
@@ -128,7 +134,7 @@ export function pageFor(route: Route): PageMeta {
       return make(
         trail(HOME_CRUMB, [LABELS.history, "#/history"]),
         "Design history",
-        "Every feature, its status and the variants we tried.",
+        "Every feature, its status, its versions and the variants we tried.",
       );
     case "feature":
       return make(

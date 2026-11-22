@@ -78,3 +78,11 @@ test("pageFor: only the home page is a hero", () => {
   assert.equal(pageFor(matchRoute("#/")).hero, true);
   assert.equal(pageFor(matchRoute("#/history")).hero, false);
 });
+
+test("queryFromHash: reads ?tab= and tolerates no query", async () => {
+  const { queryFromHash } = await import("../src/router/routes.ts");
+  assert.equal(queryFromHash("#/history/x?tab=prototype").get("tab"), "prototype");
+  assert.equal(queryFromHash("#/history/x?a=1&tab=final").get("tab"), "final");
+  assert.equal(queryFromHash("#/history/x").get("tab"), null);
+  assert.equal(queryFromHash("").get("tab"), null);
+});

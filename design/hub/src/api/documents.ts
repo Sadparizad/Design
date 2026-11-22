@@ -11,7 +11,7 @@ export type Fetched<T> =
  * Changing `reload` fetches again; the earlier result stays on screen until the new one lands,
  * so a refresh never flashes a loading state.
  */
-function useJson<T>(url: string, reload = 0): Fetched<T> {
+export function useJson<T>(url: string, reload = 0): Fetched<T> {
   const [state, setState] = useState<{ url: string; result: Fetched<T> } | null>(null);
 
   useEffect(() => {

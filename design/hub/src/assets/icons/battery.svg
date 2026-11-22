@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="22.4" height="11.2" viewBox="0 0 22.4 11.2" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Battery" clip-path="url(#clip0_0_606)">
+<mask id="stroke0_0_606" fill="white">
+<path d="M0.0399901 4C0.0399901 2.23269 1.47268 0.8 3.23999 0.8H16.84C18.6073 0.8 20.04 2.23269 20.04 4V8C20.04 9.76731 18.6073 11.2 16.84 11.2H3.23999C1.47268 11.2 0.0399901 9.76731 0.0399901 8V4Z" fill-rule="evenodd" clip-rule="evenodd"/>
+</mask>
+<path id="Outline" opacity="0.35" d="M3.23999 11.2H16.84C18.6073 11.2 20.04 9.76731 20.04 8V4C20.04 2.23269 18.6073 0.8 16.84 0.8H3.23999C1.47268 0.8 0.0399901 2.23269 0.0399901 4V8C0.0399901 9.76731 1.47268 11.2 3.23999 11.2Z" stroke-width="1.6" stroke="black" mask="url(#stroke0_0_606)"/>
+<path id="Battery End" opacity="0.4" d="M20.84 4.8V8.17628C21.5192 7.89033 21.9609 7.22512 21.9609 6.48814C21.9609 5.75115 21.5192 5.08595 20.84 4.8" fill="black"/>
+<path id="Fill" d="M1.63999 4C1.63999 3.11635 2.35633 2.4 3.23999 2.4H16.84C17.7236 2.4 18.44 3.11634 18.44 4V8C18.44 8.88365 17.7236 9.6 16.84 9.6H3.23999C2.35634 9.6 1.63999 8.88366 1.63999 8V4Z" fill="black"/>
+</g>
+<defs>
+<clipPath id="clip0_0_606">
+<rect width="22.4" height="11.2" fill="white"/>
+</clipPath>
+</defs>
+</svg>

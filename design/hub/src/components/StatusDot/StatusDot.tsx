@@ -11,7 +11,8 @@ const DOTS = { blue: "dotBlue", yellow: "dotYellow", cyan: "dotCyan" } as const 
 export type StatusTone = keyof typeof DOTS;
 
 interface StatusDotProps {
-  tone: StatusTone;
+  /** Null for a status the Hub does not know: the label shows as written, with no dot. */
+  tone: StatusTone | null;
   label: string;
 }
 
@@ -19,7 +20,7 @@ interface StatusDotProps {
 export function StatusDot({ tone, label }: StatusDotProps) {
   return (
     <span className={styles.status}>
-      <Icon name={DOTS[tone]} />
+      {tone && <Icon name={DOTS[tone]} />}
       {label}
     </span>
   );
