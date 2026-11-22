@@ -7,6 +7,8 @@ export interface TabItem {
   id: string;
   label: string;
   icon?: IconName;
+  /** Shown but not selectable, and skipped by the arrow keys. */
+  disabled?: boolean;
 }
 
 /**
@@ -54,12 +56,15 @@ export function TabControl({
     e.preventDefault();
     const rtl = getComputedStyle(e.currentTarget).direction === "rtl";
     const at = items.findIndex((i) => i.id === value);
+    const enabled = items.map((_, i) => i).filter((i) => !items[i].disabled);
+    if (enabled.length === 0) return;
     let next = at;
-    if (e.key === "Home") next = 0;
-    else if (e.key === "End") next = items.length - 1;
+    if (e.key === "Home") next = enabled[0];
+    else if (e.key === "End") next = enabled[enabled.length - 1];
     else {
       const forward = (e.key === "ArrowRight") !== rtl;
-      next = (at + (forward ? 1 : -1) + items.length) % items.length;
+      do next = (next + (forward ? 1 : -1) + items.length) % items.length;
+      while (items[next].disabled);
     }
     onChange(items[next].id);
     list.current?.querySelectorAll<HTMLElement>(`[role="${itemRole}"]`)[next]?.focus();
@@ -85,6 +90,7 @@ export function TabControl({
             role={itemRole}
             {...(radio ? { "aria-checked": selected } : { "aria-selected": selected })}
             aria-controls={panelId && !radio && selected ? panelId : undefined}
+            disabled={item.disabled}
             tabIndex={selected ? 0 : -1}
             className={`${styles.tab} ${selected ? styles.tabSelected : ""}`}
             onClick={() => onChange(item.id)}

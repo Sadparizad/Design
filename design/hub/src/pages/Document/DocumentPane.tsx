@@ -14,7 +14,7 @@ type Mode = "preview" | "edit";
 
 const MODES: TabItem[] = [
   { id: "preview", label: "Preview", icon: "eye" },
-  ...(STATIC ? [] : [{ id: "edit", label: "Edit", icon: "codeSimple" } as TabItem]),
+  { id: "edit", label: "Edit", icon: "codeSimple", disabled: STATIC },
 ];
 
 interface PaneProps {

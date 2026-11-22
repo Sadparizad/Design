@@ -102,3 +102,8 @@
   box-shadow: none;
   color: var(--text-neutral-primary);
 }
+
+.tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
