@@ -2,10 +2,14 @@ import { useEffect } from "react";
 import { EmptyState } from "./components/EmptyState/EmptyState.tsx";
 import { RepoIndicator } from "./components/RepoIndicator/RepoIndicator.tsx";
 import { AppShell } from "./components/Shell/AppShell.tsx";
+import { DocumentPage } from "./pages/Document/DocumentPage.tsx";
 import { Home } from "./pages/Home/Home.tsx";
 import { useRoute } from "./router/useRoute.ts";
 
-/** Every route renders the shell. The home page has its body; the rest come in later stages. */
+/**
+ * Every route renders the shell. Files and Skills are one DocumentPage over two lists; the
+ * rest of the pages come in later stages.
+ */
 export function App() {
   const { route, page } = useRoute();
 
@@ -17,6 +21,12 @@ export function App() {
   return (
     <AppShell page={page} headerEnd={<RepoIndicator />}>
       {route.id === "home" && <Home />}
+      {(route.id === "files" || route.id === "file") && (
+        <DocumentPage kind="files" name={route.params.name} />
+      )}
+      {(route.id === "skills" || route.id === "skill") && (
+        <DocumentPage kind="skills" name={route.params.name} />
+      )}
       {route.id === "notFound" && (
         <EmptyState
           title="Nothing to show"

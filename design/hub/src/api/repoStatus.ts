@@ -8,6 +8,14 @@ export type RepoState =
 
 const REFRESH_MS = 30_000;
 
+/** Every mounted `useRepoStatus`, so any page can ask the header to re-check Git. */
+const listeners = new Set<() => void>();
+
+/** Re-read the branch and clean / dirty state now. Call it after anything that writes a file. */
+export function refreshRepoStatus(): void {
+  listeners.forEach((refresh) => refresh());
+}
+
 /**
  * The branch and working tree state, read through the local server (which runs repoStatus()).
  * Re-checked when the window regains focus and every 30 seconds while it is visible.
@@ -33,6 +41,7 @@ export function useRepoStatus(): { state: RepoState; refresh: () => void } {
 
   useEffect(() => {
     refresh();
+    listeners.add(refresh);
     const onVisible = () => {
       if (document.visibilityState === "visible") refresh();
     };
@@ -40,6 +49,7 @@ export function useRepoStatus(): { state: RepoState; refresh: () => void } {
     window.addEventListener("focus", refresh);
     document.addEventListener("visibilitychange", onVisible);
     return () => {
+      listeners.delete(refresh);
       inflight.current?.abort();
       window.clearInterval(timer);
       window.removeEventListener("focus", refresh);

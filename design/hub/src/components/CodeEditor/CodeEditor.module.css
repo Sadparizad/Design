@@ -1,0 +1,76 @@
+/* Code Editor, Files / Edit (506:16650), nodes 513:16752 and 513:16737: a 4px padded, 16px
+   rounded, bordered panel holding a white 14px-rounded surface with 24px padding. Text is 12/16,
+   line numbers in their own 24px column with a 24px gap before the text. */
+.panel {
+  padding: var(--spaces-s2);
+  border-radius: var(--radius-r8);
+  background: var(--surface-neutral-secondary);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+}
+
+.panel:has(textarea:focus-visible) {
+  outline: calc(var(--border-b1) * 2) solid var(--border-brand-strong);
+  outline-offset: var(--spaces-s1);
+}
+
+.surface {
+  padding: var(--spaces-s11);
+  border-radius: var(--radius-r7);
+  background: var(--surface-neutral-default);
+  box-shadow: var(--shadow-tab-active);
+}
+
+.grid {
+  --gutter: max(var(--editor-gutter-min), calc(var(--digits) * 1ch));
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-block-size: var(--editor-min-height);
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-f3);
+  line-height: var(--line-height-l2);
+  font-weight: var(--font-weight-medium);
+  tab-size: 2;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: var(--gutter) minmax(0, 1fr);
+  column-gap: var(--spaces-s11);
+  min-block-size: var(--line-height-l2);
+}
+
+.number {
+  color: var(--text-neutral-subtle-hover);
+  user-select: none;
+}
+
+/* Invisible. It only decides how tall each row is. */
+.mirror {
+  visibility: hidden;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  unicode-bidi: plaintext;
+}
+
+.textarea {
+  position: absolute;
+  inset-block: 0;
+  inset-inline: calc(var(--gutter) + var(--spaces-s11)) 0;
+  inline-size: auto;
+  block-size: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  resize: none;
+  overflow: hidden;
+  background: transparent;
+  color: var(--text-neutral-tertiary);
+  font: inherit;
+  tab-size: inherit;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  unicode-bidi: plaintext;
+  text-align: start;
+}

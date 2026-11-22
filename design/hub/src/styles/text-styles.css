@@ -33,6 +33,10 @@
   font-size: var(--font-size-f4);
   line-height: var(--line-height-l2);
 }
+.label-l5 {
+  font-size: var(--font-size-f3);
+  line-height: var(--line-height-l2);
+}
 .body-b3 {
   font-size: var(--font-size-f5);
   line-height: var(--line-height-l5);
