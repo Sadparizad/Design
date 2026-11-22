@@ -1,0 +1,8 @@
+.status {
+  composes: label-l3 from global;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spaces-s3);
+  color: var(--text-neutral-tertiary);
+  white-space: nowrap;
+}

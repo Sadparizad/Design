@@ -1,0 +1,24 @@
+.body {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: var(--spaces-s4);
+  min-inline-size: 0;
+  padding: var(--spaces-s7);
+}
+
+.input {
+  composes: label-l4 from global;
+  flex: 1;
+  min-inline-size: 0;
+  padding-block: var(--spaces-s1);
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text-neutral-primary);
+}
+
+.input::placeholder {
+  color: var(--text-neutral-subtle);
+  opacity: 1;
+}

@@ -1,0 +1,43 @@
+/* Figma text styles. Components pull these in with `composes: <name> from global`. */
+.display-d2 {
+  font-family: var(--font-family-display), var(--font-fallback);
+  font-size: var(--font-size-f13);
+  line-height: var(--line-height-l14);
+  letter-spacing: var(--letter-spacing-display);
+}
+.display-d5 {
+  font-family: var(--font-family-display), var(--font-fallback);
+  font-size: var(--font-size-f10);
+  line-height: var(--line-height-l11);
+  letter-spacing: var(--letter-spacing-display);
+}
+.display-d6 {
+  font-family: var(--font-family-display), var(--font-fallback);
+  font-size: var(--font-size-f9);
+  line-height: var(--line-height-l10);
+  letter-spacing: var(--letter-spacing-display);
+}
+.heading-h4 {
+  font-size: var(--font-size-f7);
+  line-height: var(--line-height-l6);
+}
+.label-l2 {
+  font-size: var(--font-size-f6);
+  line-height: var(--line-height-l4);
+}
+.label-l3 {
+  font-size: var(--font-size-f5);
+  line-height: var(--line-height-l3);
+}
+.label-l4 {
+  font-size: var(--font-size-f4);
+  line-height: var(--line-height-l2);
+}
+.body-b3 {
+  font-size: var(--font-size-f5);
+  line-height: var(--line-height-l5);
+}
+.body-b4 {
+  font-size: var(--font-size-f4);
+  line-height: var(--line-height-l4);
+}

@@ -1,0 +1,27 @@
+/* Shared by the search input and the select. */
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  inline-size: 100%;
+  border-radius: var(--radius-r7);
+  background: var(--surface-neutral-default);
+  box-shadow:
+    inset 0 0 0 var(--border-b1) var(--border-neutral-secondary),
+    var(--shadow-input-100);
+}
+
+.field:focus-within {
+  outline: calc(var(--border-b1) * 2) solid var(--border-brand-strong);
+  outline-offset: var(--spaces-s1);
+}
+
+/* The workflow dropdown: a pill that is only as wide as its label. */
+.field.pill {
+  inline-size: auto;
+  max-inline-size: 100%;
+  border-radius: var(--radius-r99);
+  box-shadow:
+    inset 0 0 0 var(--border-b1) var(--border-neutral-secondary),
+    0 2px 4px -2px var(--effects-shadow-neutral-subtle);
+}

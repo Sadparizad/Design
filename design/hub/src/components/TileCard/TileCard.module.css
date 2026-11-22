@@ -1,0 +1,39 @@
+/* The card surface, radius, padding and bottom edge come from Card's tile variant. This adds the
+   fixed height and the text. */
+.tile {
+  min-block-size: var(--layout-card-height);
+  min-inline-size: 0;
+}
+
+/* The text block takes the free height, which pushes the arrow to the bottom corner. */
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--spaces-s3);
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+.title {
+  composes: label-l2 from global;
+  color: var(--text-neutral-primary);
+  overflow-wrap: anywhere;
+}
+
+/* At most two lines. The card keeps its height either way: the text block above absorbs it. */
+.description {
+  composes: body-b4 from global;
+  color: var(--text-neutral-tertiary);
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* No link: not clickable, so the title steps back to match the description. */
+.plain .title {
+  color: var(--text-neutral-tertiary);
+}
