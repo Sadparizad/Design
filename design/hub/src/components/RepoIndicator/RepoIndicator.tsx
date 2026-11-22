@@ -64,7 +64,7 @@ export function RepoIndicator() {
         type="button"
         className={styles.button}
         aria-expanded={open}
-        aria-controls={panelId}
+        aria-controls={open ? panelId : undefined}
         aria-label={view.branch ? `Branch ${view.branch}. ${view.summary}` : view.summary}
         onClick={() => {
           if (!open) refresh();

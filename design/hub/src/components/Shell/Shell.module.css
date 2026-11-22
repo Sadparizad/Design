@@ -16,7 +16,9 @@
   block-size: var(--layout-header);
   padding-inline: var(--spaces-s8);
   background: var(--surface-neutral-secondary);
-  border-block-end: var(--border-b1) solid var(--border-neutral-secondary);
+  /* An inset shadow, not a border: Figma draws this rule inside the 64px box, so a border
+     would take a pixel off the content box and shift the buttons half a pixel up. */
+  box-shadow: inset 0 calc(var(--border-b1) * -1) 0 0 var(--border-neutral-secondary);
 }
 
 .start {
@@ -109,12 +111,13 @@
   min-block-size: var(--layout-title-band);
   padding-inline: var(--spaces-s8);
   background: var(--surface-neutral-default);
-  border-block-end: var(--border-b1) solid var(--border-neutral-secondary);
+  /* Inset shadow rather than a border, for the same reason as the header. */
+  box-shadow: inset 0 calc(var(--border-b1) * -1) 0 0 var(--border-neutral-secondary);
 }
 
 /* The home band has no rule under it. */
 .bandHero {
-  border-block-end: 0;
+  box-shadow: none;
 }
 
 /* With controls crossing the bottom edge the title sits a little higher. */
@@ -167,7 +170,7 @@
 
 .descriptionHero {
   composes: body-b3 from global;
-  max-inline-size: var(--layout-hero-description);
+  max-inline-size: var(--layout-hero-measure);
   text-wrap: balance;
 }
 

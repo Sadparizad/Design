@@ -124,7 +124,8 @@
   --layout-card-height: 194px;
   /* Narrowest a card gets before the grid drops to one per row. Two fit the 800px column. */
   --layout-card-min: 320px;
-  /* Home description wraps after "helpers that" in the frames (327px of text). */
-  --layout-hero-description: 360px;
   --layout-icon-button: 32px;
+  /* The hero description's measure. The frame sets this text to hug at 327px so it falls on
+     two balanced lines; this is the nearest width that does the same without a hard break. */
+  --layout-hero-measure: 336px;
 }
