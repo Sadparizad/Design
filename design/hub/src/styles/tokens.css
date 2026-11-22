@@ -116,4 +116,7 @@
   --layout-sidebar: 216px;
   --layout-document: 544px;
   --layout-icon-button: 32px;
+  /* The hero description's measure. The frame sets this text to hug at 327px so it falls on
+     two balanced lines; this is the nearest width that does the same without a hard break. */
+  --layout-hero-measure: 336px;
 }

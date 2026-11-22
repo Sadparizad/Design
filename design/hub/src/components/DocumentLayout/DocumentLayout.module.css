@@ -7,6 +7,7 @@
 }
 
 .sidebar {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--spaces-s4);
@@ -14,7 +15,17 @@
   align-self: stretch;
   inline-size: var(--layout-sidebar);
   padding-inline-end: var(--spaces-s15);
-  border-inline-end: var(--border-b1) solid var(--border-neutral-secondary);
+}
+
+/* The rule sits on the inline-end edge without taking a pixel from the cards, which keeps
+   them at the 176px Figma draws. A border would make them 175px. */
+.sidebar::after {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  inline-size: var(--border-b1);
+  background: var(--border-neutral-secondary);
 }
 
 .document {
