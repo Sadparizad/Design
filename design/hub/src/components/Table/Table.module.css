@@ -1,0 +1,42 @@
+/* Header 56px, body rows 64px (frames 500:33410 and 500:70578). */
+.table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  border-radius: var(--radius-r4);
+  table-layout: auto;
+}
+
+.head,
+.cell {
+  padding: var(--spaces-s6) var(--spaces-s0);
+  padding-inline-start: var(--spaces-s2);
+  padding-inline-end: var(--spaces-s8);
+  border-block-end: var(--border-b1) solid var(--border-neutral-secondary);
+  text-align: start;
+  vertical-align: middle;
+  /* break-word, not anywhere: a column never narrows below its longest word. */
+  overflow-wrap: break-word;
+}
+
+.head {
+  composes: label-l4 from global;
+  block-size: 56px;
+  color: var(--text-neutral-tertiary);
+  white-space: nowrap;
+}
+
+.cell {
+  composes: label-l4 from global;
+  block-size: 64px;
+  color: var(--text-neutral-secondary);
+}
+
+/* The first column holds IDs and keys: never narrower than the 160px the frames give it. */
+.head:first-child,
+.cell:first-child {
+  min-inline-size: 160px;
+}
+
+.table tbody tr:last-child .cell {
+  border-block-end: 0;
+}

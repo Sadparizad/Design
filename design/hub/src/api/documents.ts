@@ -7,7 +7,7 @@ export type Fetched<T> =
   | { phase: "failed" };
 
 /** GET a JSON address on the local server. Aborts when the address changes or the page leaves. */
-function useJson<T>(url: string): Fetched<T> {
+export function useJson<T>(url: string): Fetched<T> {
   const [state, setState] = useState<{ url: string; result: Fetched<T> } | null>(null);
 
   useEffect(() => {

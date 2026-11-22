@@ -1,0 +1,92 @@
+/* The Spec tab body: 80px under the title band, sections 48px apart (frame 500:33368). */
+.spec {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s17);
+  padding-block-start: var(--spaces-s23);
+}
+
+/* Title, then 6px, then the content. */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spaces-s3);
+}
+
+.title {
+  composes: label-l2 from global;
+  color: var(--text-neutral-primary);
+}
+
+.text {
+  composes: body-b4 from global;
+  color: var(--text-neutral-secondary);
+  overflow-wrap: anywhere;
+}
+
+.none {
+  composes: body-b4 from global;
+  color: var(--text-neutral-subtle);
+}
+
+.list {
+  padding-inline-start: 21px;
+  list-style: disc;
+}
+
+.ordered {
+  list-style: decimal;
+}
+
+.code {
+  font-family: var(--font-family-mono);
+  font-size: 0.93em;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.link {
+  color: var(--text-brand-primary);
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.pre {
+  composes: body-b4 from global;
+  margin: 0;
+  padding: var(--spaces-s8);
+  border-radius: var(--radius-r6);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+  color: var(--text-neutral-secondary);
+  font-family: var(--font-family-mono);
+  overflow-x: auto;
+}
+
+/* Pick: the decision, and who and when beside it, in the history list's row card. */
+.pick {
+  composes: label-l3 from global;
+  inline-size: 100%;
+}
+
+.decision {
+  flex: 1 1 0;
+  min-inline-size: 0;
+  color: var(--text-neutral-primary);
+  overflow-wrap: anywhere;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--spaces-s2) var(--spaces-s8);
+  margin: 0;
+  padding: 0;
+  color: var(--text-neutral-tertiary);
+  list-style: none;
+}

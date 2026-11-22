@@ -26,6 +26,7 @@
   --spaces-s13: 32px; /* Spaces/S13 */
   --spaces-s15: 40px; /* Spaces/S15 */
   --spaces-s17: 48px; /* Spaces/S17 */
+  --spaces-s22: 72px; /* Spaces/S22 */
   --spaces-s23: 80px; /* Spaces/S23 */
   --spaces-s25: 96px; /* Spaces/S25 */
   --spaces-s26: 104px; /* Spaces/S26 */
@@ -62,10 +63,12 @@
 
   /* ── Radius ────────────────────────────────────────────────── */
   --radius-r0: 0px; /* Radius/R0 */
+  --radius-r4: 8px; /* Radius/R4 */
   --radius-r5: 10px; /* Radius/R5 */
   --radius-r6: 12px; /* Radius/R6 */
   --radius-r7: 14px; /* Radius/R7 */
   --radius-r8: 16px; /* Radius/R8 */
+  --radius-r10: 20px; /* Radius/R10 */
   --radius-r99: 9999px; /* Radius/R99 (Rounded) */
 
   /* ── Border width ──────────────────────────────────────────── */
@@ -128,4 +131,19 @@
   /* The hero description's measure. The frame sets this text to hug at 327px so it falls on
      two balanced lines; this is the nearest width that does the same without a hard break. */
   --layout-hero-measure: 336px;
+
+  /* ── Not Figma variables: inline code in a spec (no frame shows one) ── */
+  --font-family-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* ── Not Figma variables: the preview frames on the Prototype tab ── */
+  /* Frame sizes come from product-prd.md ("Frame sizes in the shell"), not from the Figma mock,
+     which draws the mobile frame 320px wide. Node 500:33746. */
+  --frame-mobile-width: 384px;
+  --frame-mobile-height: 760px;
+  --frame-desktop-width: 1440px;
+  --frame-desktop-height: 1024px;
+  /* The status bar above each screen, as drawn in the mock (nodes 500:33790 and 500:33793). */
+  --frame-bar-padding-inline: 12px;
+  --frame-bar-padding-block: 14px;
+  --frame-bar-gap: 12.8px;
 }

@@ -1,7 +1,7 @@
 import { parseFrontMatter } from "./frontmatter.ts";
 
 /** Body text with front matter and HTML comments removed. */
-function visibleBody(text: string): string {
+export function visibleBody(text: string): string {
   return parseFrontMatter(text).body.replace(/<!--[\s\S]*?-->/g, "");
 }
 

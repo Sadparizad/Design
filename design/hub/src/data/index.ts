@@ -153,6 +153,8 @@ export function createDataLayer(designRoot: string = defaultDesignRoot()): DataL
       status: pick(meta, "status"),
       owner: pick(meta, "owner"),
       preview: pick(meta, "preview", "previewlink"),
+      started: pick(meta, "started", "startdate", "start"),
+      shipped: pick(meta, "shipped", "shippeddate", "end", "enddate"),
     };
   }
 

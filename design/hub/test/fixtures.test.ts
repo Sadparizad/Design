@@ -34,21 +34,24 @@ test("listFeatures: reads title and README front matter, skips _template and hid
       "features/.hidden/spec.md": "# Hidden\n",
       "features/checkout-v2/spec.md": "<!-- note -->\n# Checkout\n\n## Summary\n",
       "features/checkout-v2/README.md":
-        "---\nstatus: Prototype\nOwner: Dana\nPreview Link: https://example.test/pr/1\n---\n\n# Checkout\n",
+        "---\nstatus: Prototype\nOwner: Dana\nPreview Link: https://example.test/pr/1\nStarted: 2026-03-12\nshipped: <YYYY-MM-DD>\n---\n\n# Checkout\n",
       "features/onboarding/README.md": "---\nstatus: <Status>\nowner: <Name>\n---\n",
       "features/bare/.gitkeep": "",
     }),
   );
   assert.deepEqual(await data.listFeatures(), [
-    { name: "bare", title: null, status: null, owner: null, preview: null },
+    { name: "bare", title: null, status: null, owner: null, preview: null, started: null, shipped: null },
     {
       name: "checkout-v2",
       title: "Checkout",
       status: "Prototype",
       owner: "Dana",
       preview: "https://example.test/pr/1",
+      // `started` is read whatever its case; an unfilled `<YYYY-MM-DD>` placeholder is no date.
+      started: "2026-03-12",
+      shipped: null,
     },
-    { name: "onboarding", title: null, status: null, owner: null, preview: null },
+    { name: "onboarding", title: null, status: null, owner: null, preview: null, started: null, shipped: null },
   ]);
 });
 
