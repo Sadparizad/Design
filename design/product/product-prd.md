@@ -8,7 +8,7 @@
 - Keep it short. Write "TBD" if you do not know yet. Remove these comments when the file is ready.
 -->
 
-## Summar
+## Summary
 
 <!-- One or two sentences: what the product is and who it is for. Details about users live in persona.md. -->
 
