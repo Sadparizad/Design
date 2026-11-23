@@ -24,3 +24,39 @@ The Hub does not talk to GitHub. It changes the files on your computer, and Git 
 | `skills/` | Instructions the agent follows for a repeatable job |
 | `shell/` | The prototype shell |
 | `hub/` | The Design Hub app itself |
+
+## How a feature moves
+
+1. **PRD to spec.** Run the `spec-from-prd` skill. It writes the feature's `spec.md`.
+2. **Variants and Figma.** Add the design options in `variants.json` and `variants/`, and the Figma links in `design/figma.md`.
+3. **Prototype.** Build the prototype and keep the strings in `strings.json`.
+4. **Check.** Run the `design-qa` skill. It compares the prototype with Figma, `product/design.md` and the spec, and reports what does not match.
+5. **Handoff.** Write what changed in `handoff/changelog.md`, then set `status` to `Shipped` and fill in `shipped` in the feature's `README.md`.
+
+## Starting a new feature
+
+1. Copy `features/_template` to `features/<feature-name>`. Use lowercase words joined with hyphens.
+2. Fill in the fields at the top of the new `README.md`: `status`, `owner`, `preview`, `started` and `shipped`. The Hub reads only these five fields.
+3. Leave `shipped` empty until the feature ships. The list shows it as "Open".
+
+## Skills
+
+| Skill | Use it when |
+|---|---|
+| `spec-from-prd` | You have a PRD, a link or a few sentences and need a new `spec.md` |
+| `design-qa` | A prototype is ready and must be checked against Figma, `design.md` and the spec |
+| `sync-design-system` | You want to compare the tokens in `design.md` with Storybook |
+| `update-design-md` | `design.md` must be updated after the design language changed |
+
+## Working with the AI agent
+
+The agent starts from `AGENT.md`. Before it designs or writes anything, it reads:
+
+- `product/`: the PRD, personas, journey map, `design.md` and the design system links.
+- The feature's `spec.md`, `strings.json` and variants.
+
+When the agent has a skill for the job, it follows the skill's steps. Tell it the skill name, for example "run design-qa on wallet-top-up".
+
+## Published Hub
+
+Every push to `main` that changes `design/` publishes a read-only copy of the Hub to GitHub Pages: <https://sadparizad.github.io/Design/>. It shows the files but cannot edit them. To edit, run the Hub on your computer.

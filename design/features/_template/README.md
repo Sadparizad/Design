@@ -15,3 +15,43 @@ shipped:
 - variants.json: one entry per variant, as "id": "Label". Example: { "A": "Table", "B": "Cards" }.
   The Prototype tab shows them in file order, as "A - Table".
 -->
+
+<Two or three sentences: what problem this feature solves, and for whom.>
+
+## Links
+
+- PRD: <link>
+- Figma: <link>
+- Ticket: <link>
+- Prototype: <link>
+
+## People
+
+- Design: <Name>
+- Product: <Name>
+- Engineering: <Name>
+
+## Scope
+
+- In: <what this feature covers>
+- Out: <what it leaves out on purpose>
+
+## Key decisions
+
+- <Decision, and why. For example: variant B was chosen over A because ...>
+
+## Status
+
+<Where the work stands now: what is done, what is blocked, who is waiting on whom.>
+
+## Open questions
+
+- <Question that has no answer yet>
+
+## Files
+
+- `spec.md`: what the feature does and how it behaves
+- `strings.json`: every text the user sees
+- `variants.json` and `variants/`: the design options
+- `design/`: Figma links, references and prototype
+- `handoff/changelog.md`: what changed, version by version
