@@ -79,6 +79,7 @@
   --surface-neutral-default: #ffffff; /* Surface/Neutral/Default */
   --surface-neutral-secondary: #f8f7f6; /* Surface/Neutral/Secondary */
   --surface-neutral-tertiary: #ece9e6; /* Surface/Neutral/Tertiary */
+  --surface-neutral-tertiary-hover: #d6cfc9; /* Surface/Neutral/Tertiary Hover */
   --surface-neutral-strong: #000000; /* Surface/Neutral/Strong */
   --surface-brand-strong: #fa541c; /* Surface/Brand/Strong */
 
@@ -119,6 +120,9 @@
   /* Bottom edge on Card (node 506:14274 uses #f6f7f8 here, which has no variable;
      the subtle shadow variable is used instead). */
   --card-edge-tile: 6px;
+  /* Hover: the bottom edge grows 2px and the card's content moves up 2px (design note). */
+  --card-edge-tile-hover: 8px;
+  --card-lift-tile-hover: 2px;
   --card-edge-row: 4px;
   --card-edge-item: 3px;
   /* Step number circle in the workflow paragraph (node 506:14159): `border-2`, 24x24. */
@@ -134,6 +138,7 @@
   --layout-column: 800px;
   --layout-sidebar: 216px;
   --layout-card-height: 194px;
+  --layout-menu-width: 272px; /* Dropdown menu under the workflow pill (node 520:21525) */
   /* Narrowest a card gets before the grid drops to one per row. Two fit the 800px column. */
   --layout-card-min: 320px;
   --layout-icon-button: 32px;

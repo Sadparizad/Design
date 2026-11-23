@@ -76,8 +76,7 @@
 }
 
 .link:hover .code {
-  background: var(--border-neutral-secondary);
-  transition: background-color 0.15s ease;
+  background: var(--surface-neutral-tertiary-hover);
 }
 
 /* A file or skill name: same size as the sentence, on a tinted chip, underlined. */
@@ -88,6 +87,7 @@
   background: var(--surface-neutral-tertiary);
   color: var(--text-neutral-secondary);
   font: inherit;
+  transition: background-color var(--motion-hover);
   text-decoration: underline;
   text-decoration-thickness: from-font;
   text-underline-position: from-font;

@@ -24,6 +24,20 @@ button.card {
   gap: var(--spaces-s15);
   padding: var(--spaces-s11) var(--spaces-s11) var(--spaces-s12);
   border-radius: var(--radius-r8);
+  transition: box-shadow var(--motion-hover);
+}
+
+.tile > * {
+  transition: translate var(--motion-hover);
+}
+
+/* Hover (links only): the inner bottom edge grows 2px and the content rises 2px. */
+a.tile:hover {
+  --edge: var(--card-edge-tile-hover);
+}
+
+a.tile:hover > * {
+  translate: 0 calc(var(--card-lift-tile-hover) * -1);
 }
 
 /* List rows: columns across, arrow at the end. */
