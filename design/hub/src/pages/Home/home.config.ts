@@ -63,10 +63,14 @@ export const WORKFLOW_LINKS: Readonly<Record<string, string>> = {
  */
 export const STORYBOOK_PATH = "product/design-system/storybook/README.md";
 
-/** Where each Source card finds its link: a file under design/. */
-export const SOURCES: ReadonlyArray<{ name: string; path: string }> = [
-  { name: "Figma", path: "product/design-system/figma.md" },
-];
+/**
+ * The file that holds the Figma links, one list line each: `- Name: [Figma file](link)`.
+ * The Figma card opens the Hub's own Figma page, which reads this file.
+ */
+export const FIGMA_PATH = "product/design-system/figma.md";
 
 /** The two Files cards. Each one's title and description come from that route's page copy. */
 export const FILE_ROUTES: readonly string[] = ["#/history", "#/files"];
+
+/** The two Sources cards. Each one's title and description come from that route's page copy. */
+export const SOURCE_ROUTES: readonly string[] = ["#/storybook", "#/figma"];

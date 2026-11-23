@@ -7,6 +7,8 @@ interface TitleBandProps {
   description?: string | null;
   /** Home page style: centred, bigger title with the mascot after the first word. */
   hero?: boolean;
+  /** A 14px description under the title, as the Figma page has, instead of the usual 16px. */
+  smallDescription?: boolean;
   /** Actions at the far end of the title row, such as buttons and a date. */
   end?: ReactNode;
   /** Controls that cross the bottom edge of the band, such as search and a filter. */
@@ -17,7 +19,16 @@ interface TitleBandProps {
   tabs?: ReactNode;
 }
 
-export function TitleBand({ title, description, hero = false, end, controls, meta, tabs }: TitleBandProps) {
+export function TitleBand({
+  title,
+  description,
+  hero = false,
+  smallDescription = false,
+  end,
+  controls,
+  meta,
+  tabs,
+}: TitleBandProps) {
   const words = title.split(" ");
   const detail = Boolean(meta || tabs);
   const band = [
@@ -25,6 +36,7 @@ export function TitleBand({ title, description, hero = false, end, controls, met
     hero && styles.bandHero,
     controls && styles.bandWithControls,
     detail && styles.bandDetail,
+    smallDescription && styles.bandSmall,
   ]
     .filter(Boolean)
     .join(" ");
@@ -84,7 +96,9 @@ export function TitleBand({ title, description, hero = false, end, controls, met
           )}
           {description && (
             <p
-              className={`${styles.description} ${hero ? styles.descriptionHero : styles.descriptionPage}`}
+              className={`${styles.description} ${
+                hero ? styles.descriptionHero : smallDescription ? styles.descriptionSmall : styles.descriptionPage
+              }`}
             >
               {description}
             </p>

@@ -1,0 +1,6 @@
+/* Two cards to a row in the 800px column, 16px apart; a lone last card keeps its half. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--layout-card-min), 1fr));
+  gap: var(--spaces-s8);
+}

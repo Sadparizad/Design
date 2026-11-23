@@ -37,3 +37,21 @@
 .plain .title {
   color: var(--text-neutral-tertiary);
 }
+
+/* Height follows the text: 24px title, 6px, 24px line (frame 520:22507). */
+.hug {
+  min-block-size: 0;
+}
+
+/* One 14px line that looks like a link: the card itself is the link. */
+.detail {
+  composes: body-b4 from global;
+  color: var(--text-neutral-tertiary);
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-underline-position: from-font;
+}
+
+.plain .detail {
+  text-decoration: none;
+}

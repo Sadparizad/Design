@@ -8,6 +8,10 @@ interface AppShellProps {
   page: PageMeta;
   /** The 32x32 slot at the far right of the header. */
   headerEnd?: ReactNode;
+  /** A 14px description under the title. */
+  smallDescription?: boolean;
+  /** Pull the body up over the bottom edge of the title band. */
+  bodyOverlap?: boolean;
   /** Actions at the far end of the title row. */
   titleEnd?: ReactNode;
   /** Controls that cross the bottom edge of the title band. */
@@ -30,6 +34,8 @@ interface AppShellProps {
 export function AppShell({
   page,
   headerEnd,
+  smallDescription = false,
+  bodyOverlap = false,
   titleEnd,
   controls,
   meta,
@@ -48,11 +54,12 @@ export function AppShell({
         description={page.description}
         hero={page.hero}
         end={titleEnd}
+        smallDescription={smallDescription}
         controls={controls}
         meta={meta}
         tabs={tabs}
       />
-      <main className={styles.body}>
+      <main className={`${styles.body} ${bodyOverlap ? styles.bodyOverlap : ""}`}>
         <div
           {...(panel ? { role: "tabpanel", id: panel.id, "aria-labelledby": panel.labelledBy } : {})}
         >
