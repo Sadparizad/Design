@@ -133,7 +133,6 @@
   --layout-title-band: 352px;
   --layout-column: 800px;
   --layout-sidebar: 216px;
-  --layout-document: 544px;
   --layout-card-height: 194px;
   /* Narrowest a card gets before the grid drops to one per row. Two fit the 800px column. */
   --layout-card-min: 320px;
