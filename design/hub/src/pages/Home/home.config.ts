@@ -46,6 +46,17 @@ export const WORKFLOWS: readonly WorkflowOption[] = [
   },
 ];
 
+/**
+ * Chips that open a page of the Hub, by the chip's text. A chip with no entry stays plain text:
+ * the Hub has no page for the prototype shell or the handoff files yet.
+ * A spec.md lives inside each feature, so it opens the design history, where the features are.
+ */
+export const WORKFLOW_LINKS: Readonly<Record<string, string>> = {
+  PRD: "#/files/product-prd",
+  "spec-from-prd": "#/skills/spec-from-prd",
+  "spec.md": "#/history",
+};
+
 /** Where each Source card finds its link: a file under design/. */
 export const SOURCES: ReadonlyArray<{ name: string; path: string }> = [
   { name: "Storybook", path: "product/design-system/storybook/README.md" },

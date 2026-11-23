@@ -1,6 +1,6 @@
 import { Fragment, useMemo, useState, type ReactNode } from "react";
 import { Select } from "../../components/Select/Select.tsx";
-import { WORKFLOWS } from "./home.config.ts";
+import { WORKFLOWS, WORKFLOW_LINKS } from "./home.config.ts";
 import { parseWorkflow, type WorkflowPart } from "./parseWorkflow.ts";
 import styles from "./Workflow.module.css";
 
@@ -20,7 +20,17 @@ function renderParts(parts: WorkflowPart[]): ReactNode[] {
   for (let i = 0; i < parts.length; i++) {
     const part = parts[i];
     if (part.type === "code") {
-      out.push(<code key={i} className={styles.code}>{part.value}</code>);
+      const href = WORKFLOW_LINKS[part.value];
+      const chip = <code className={styles.code}>{part.value}</code>;
+      out.push(
+        href ? (
+          <a key={i} href={href} className={styles.link}>
+            {chip}
+          </a>
+        ) : (
+          <Fragment key={i}>{chip}</Fragment>
+        ),
+      );
     } else if (part.type === "text") {
       out.push(<Fragment key={i}>{part.value}</Fragment>);
     } else {
