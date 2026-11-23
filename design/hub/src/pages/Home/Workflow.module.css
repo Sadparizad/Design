@@ -68,6 +68,18 @@
   color: var(--text-brand-primary);
 }
 
+/* A chip that opens its page. The chip keeps its look; the link only adds a hover and a focus ring. */
+.link {
+  color: inherit;
+  text-decoration: none;
+  border-radius: var(--radius-r5);
+}
+
+.link:hover .code {
+  background: var(--border-neutral-secondary);
+  transition: background-color 0.15s ease;
+}
+
 /* A file or skill name: same size as the sentence, on a tinted chip, underlined. */
 .code {
   display: inline-block;

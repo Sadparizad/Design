@@ -36,3 +36,20 @@
   opacity: 0.4;
   cursor: default;
 }
+
+/* Compact: 10px down and 14px across, 12px radius (frame 520:22276). */
+.compact {
+  padding: var(--spaces-s5) var(--spaces-s7);
+  border-radius: var(--radius-r6);
+  text-decoration: none;
+}
+
+/* An icon alone: 10px around a 20px icon, so a 40px square. */
+.iconOnly {
+  padding: var(--spaces-s5);
+}
+
+.iconOnly .text {
+  display: flex;
+  padding-block: 0;
+}

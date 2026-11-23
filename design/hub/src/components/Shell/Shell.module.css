@@ -130,6 +130,11 @@
   box-shadow: inset 0 calc(var(--border-b1) * -1) 0 0 var(--border-neutral-secondary);
 }
 
+/* Frame 520:22489: the title and a 24px line are 84px tall, with 136px above and below. */
+.bandSmall {
+  padding-block: var(--spaces-s30);
+}
+
 /* The home band has no rule under it. */
 .bandHero {
   box-shadow: none;
@@ -162,6 +167,30 @@
   gap: var(--spaces-s2);
   inline-size: 100%;
   max-inline-size: var(--layout-column);
+}
+
+/* Title and description on the start side, actions on the end side, 80px tall in all. */
+.bandRow {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spaces-s8);
+}
+
+.bandText {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--spaces-s2);
+  min-inline-size: 0;
+}
+
+.bandEnd {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spaces-s2);
 }
 
 .bandInnerDetail {
@@ -199,6 +228,10 @@
 
 .descriptionPage {
   composes: label-l3 from global;
+}
+
+.descriptionSmall {
+  composes: body-b4 from global;
 }
 
 .descriptionHero {
@@ -240,6 +273,16 @@
   inline-size: 100%;
   max-inline-size: var(--layout-column);
   margin-inline: auto;
+}
+
+/* The preview starts 48px up, over the bottom edge of the title band (frame 520:21919). */
+.wideOverlap {
+  margin-block-start: calc(var(--spaces-s17) * -1);
+}
+
+/* The body starts 80px up, over the bottom edge of the title band (frame 520:22349). */
+.bodyOverlap {
+  margin-block-start: calc(var(--spaces-s23) * -1);
 }
 
 /* The previews break out of the column and run the width of the window, 24px in from each edge. */

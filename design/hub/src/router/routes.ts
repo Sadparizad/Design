@@ -9,6 +9,8 @@ export const LABELS = {
   history: "Design history",
   files: "Files",
   skills: "Skills",
+  storybook: "Storybook",
+  figma: "Figma",
 } as const;
 
 export type RouteId =
@@ -19,6 +21,8 @@ export type RouteId =
   | "file"
   | "skills"
   | "skill"
+  | "storybook"
+  | "figma"
   | "notFound";
 
 export interface Route {
@@ -51,6 +55,8 @@ const PATTERNS: Array<{ id: RouteId; pattern: string }> = [
   { id: "file", pattern: "/files/:name" },
   { id: "skills", pattern: "/skills" },
   { id: "skill", pattern: "/skills/:name" },
+  { id: "storybook", pattern: "/storybook" },
+  { id: "figma", pattern: "/figma" },
 ];
 
 /** "#/history/x/?a=1" becomes "/history/x". */
@@ -161,6 +167,18 @@ export function pageFor(route: Route): PageMeta {
       );
       return { ...page, back: { label: LABELS.home, href: "#/" } };
     }
+    case "storybook":
+      return make(
+        trail(HOME_CRUMB, [LABELS.storybook, "#/storybook"]),
+        "Storybook",
+        "The live catalogue of coded components.",
+      );
+    case "figma":
+      return make(
+        trail(HOME_CRUMB, [LABELS.figma, "#/figma"]),
+        "Figma",
+        "The figma design screens and system.",
+      );
     case "notFound":
       return make(
         trail(HOME_CRUMB, ["Page not found", ""]),

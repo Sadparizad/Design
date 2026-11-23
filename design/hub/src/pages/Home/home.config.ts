@@ -46,11 +46,31 @@ export const WORKFLOWS: readonly WorkflowOption[] = [
   },
 ];
 
-/** Where each Source card finds its link: a file under design/. */
-export const SOURCES: ReadonlyArray<{ name: string; path: string }> = [
-  { name: "Storybook", path: "product/design-system/storybook/README.md" },
-  { name: "Figma", path: "product/design-system/figma.md" },
-];
+/**
+ * Chips that open a page of the Hub, by the chip's text. A chip with no entry stays plain text:
+ * the Hub has no page for the prototype shell or the handoff files yet.
+ * A spec.md lives inside each feature, so it opens the design history, where the features are.
+ */
+export const WORKFLOW_LINKS: Readonly<Record<string, string>> = {
+  PRD: "#/files/product-prd",
+  "spec-from-prd": "#/skills/spec-from-prd",
+  "spec.md": "#/history",
+};
+
+/**
+ * The file that holds the Storybook link, and optionally `updated: YYYY-MM-DD` in its front matter.
+ * The Storybook card opens the Hub's own Storybook page, which reads this file.
+ */
+export const STORYBOOK_PATH = "product/design-system/storybook/README.md";
+
+/**
+ * The file that holds the Figma links, one list line each: `- Name: [Figma file](link)`.
+ * The Figma card opens the Hub's own Figma page, which reads this file.
+ */
+export const FIGMA_PATH = "product/design-system/figma.md";
 
 /** The two Files cards. Each one's title and description come from that route's page copy. */
 export const FILE_ROUTES: readonly string[] = ["#/history", "#/files"];
+
+/** The two Sources cards. Each one's title and description come from that route's page copy. */
+export const SOURCE_ROUTES: readonly string[] = ["#/storybook", "#/figma"];

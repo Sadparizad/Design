@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import { DeviceFrame, type DeviceKind } from "./DeviceFrame.tsx";
 import styles from "./PreviewStage.module.css";
 
@@ -6,6 +6,8 @@ export type PreviewSizes = "both" | "mobile" | "desktop";
 
 interface PreviewStageProps {
   sizes: PreviewSizes;
+  /** What renders into each screen. Without it the screens stay empty. */
+  screen?: ReactNode;
 }
 
 const KINDS: Record<PreviewSizes, DeviceKind[]> = {
@@ -24,7 +26,7 @@ interface Natural {
  * One scale for all of them keeps Mobile and Desktop in true proportion. Frames never scale
  * up past true size. What renders inside a screen still sees a real 384 or 1440 pixel viewport.
  */
-export function PreviewStage({ sizes }: PreviewStageProps) {
+export function PreviewStage({ sizes, screen }: PreviewStageProps) {
   const stage = useRef<HTMLDivElement>(null);
   const frames = useRef<Partial<Record<DeviceKind, HTMLDivElement | null>>>({});
   const [natural, setNatural] = useState<Partial<Record<DeviceKind, Natural>>>({});
@@ -74,7 +76,9 @@ export function PreviewStage({ sizes }: PreviewStageProps) {
                 frameRef={(node) => {
                   frames.current[kind] = node;
                 }}
-              />
+              >
+                {screen}
+              </DeviceFrame>
             </div>
           </div>
         );

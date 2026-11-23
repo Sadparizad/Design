@@ -8,6 +8,12 @@ interface AppShellProps {
   page: PageMeta;
   /** The 32x32 slot at the far right of the header. */
   headerEnd?: ReactNode;
+  /** A 14px description under the title. */
+  smallDescription?: boolean;
+  /** Pull the body up over the bottom edge of the title band. */
+  bodyOverlap?: boolean;
+  /** Actions at the far end of the title row. */
+  titleEnd?: ReactNode;
   /** Controls that cross the bottom edge of the title band. */
   controls?: ReactNode;
   /** The detail page: facts above the title, and the tab bar below it, inside the band. */
@@ -17,6 +23,8 @@ interface AppShellProps {
   tone?: "secondary" | "default";
   /** Content that runs the width of the window, below the 800px column. */
   wide?: ReactNode;
+  /** Pull `wide` up over the bottom edge of the title band. */
+  wideOverlap?: boolean;
   /** The detail page: the body is the panel of the selected tab. */
   panel?: { id: string; labelledBy: string };
   children?: ReactNode;
@@ -26,11 +34,15 @@ interface AppShellProps {
 export function AppShell({
   page,
   headerEnd,
+  smallDescription = false,
+  bodyOverlap = false,
+  titleEnd,
   controls,
   meta,
   tabs,
   tone = "secondary",
   wide,
+  wideOverlap = false,
   panel,
   children,
 }: AppShellProps) {
@@ -41,16 +53,20 @@ export function AppShell({
         title={page.title}
         description={page.description}
         hero={page.hero}
+        end={titleEnd}
+        smallDescription={smallDescription}
         controls={controls}
         meta={meta}
         tabs={tabs}
       />
-      <main className={styles.body}>
+      <main className={`${styles.body} ${bodyOverlap ? styles.bodyOverlap : ""}`}>
         <div
           {...(panel ? { role: "tabpanel", id: panel.id, "aria-labelledby": panel.labelledBy } : {})}
         >
           <div className={styles.column}>{children}</div>
-          {wide && <div className={styles.wide}>{wide}</div>}
+          {wide && (
+            <div className={`${styles.wide} ${wideOverlap ? styles.wideOverlap : ""}`}>{wide}</div>
+          )}
         </div>
       </main>
     </div>

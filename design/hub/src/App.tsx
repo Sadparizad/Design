@@ -6,6 +6,8 @@ import { DocumentPage } from "./pages/Document/DocumentPage.tsx";
 import { FeaturePage, tabFromQuery } from "./pages/Feature/Feature.tsx";
 import { History } from "./pages/History/History.tsx";
 import { Home } from "./pages/Home/Home.tsx";
+import { FigmaPage } from "./pages/Figma/FigmaPage.tsx";
+import { StorybookPage } from "./pages/Storybook/StorybookPage.tsx";
 import { useRoute } from "./router/useRoute.ts";
 
 /**
@@ -25,6 +27,8 @@ export function App() {
   }, [route.id, route.params.feature]);
 
   if (route.id === "history") return <History page={page} />;
+  if (route.id === "storybook") return <StorybookPage page={page} />;
+  if (route.id === "figma") return <FigmaPage page={page} />;
   if (route.id === "feature") {
     return (
       <FeaturePage
