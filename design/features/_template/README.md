@@ -20,33 +20,19 @@ shipped:
 
 ## Links
 
-- PRD: <link>
+- Spec: <link>
 - Figma: <link>
-- Ticket: <link>
 - Prototype: <link>
 
 ## People
 
 - Design: <Name>
 - Product: <Name>
-- Engineering: <Name>
-
-## Scope
-
-- In: <what this feature covers>
-- Out: <what it leaves out on purpose>
-
-## Key decisions
-
-- <Decision, and why. For example: variant B was chosen over A because ...>
 
 ## Status
 
 <Where the work stands now: what is done, what is blocked, who is waiting on whom.>
 
-## Open questions
-
-- <Question that has no answer yet>
 
 ## Files
 
