@@ -9,6 +9,7 @@ export const LABELS = {
   history: "Design history",
   files: "Files",
   skills: "Skills",
+  storybook: "Storybook",
 } as const;
 
 export type RouteId =
@@ -19,6 +20,7 @@ export type RouteId =
   | "file"
   | "skills"
   | "skill"
+  | "storybook"
   | "notFound";
 
 export interface Route {
@@ -51,6 +53,7 @@ const PATTERNS: Array<{ id: RouteId; pattern: string }> = [
   { id: "file", pattern: "/files/:name" },
   { id: "skills", pattern: "/skills" },
   { id: "skill", pattern: "/skills/:name" },
+  { id: "storybook", pattern: "/storybook" },
 ];
 
 /** "#/history/x/?a=1" becomes "/history/x". */
@@ -161,6 +164,12 @@ export function pageFor(route: Route): PageMeta {
       );
       return { ...page, back: { label: LABELS.home, href: "#/" } };
     }
+    case "storybook":
+      return make(
+        trail(HOME_CRUMB, [LABELS.storybook, "#/storybook"]),
+        "Storybook",
+        "The live catalogue of coded components.",
+      );
     case "notFound":
       return make(
         trail(HOME_CRUMB, ["Page not found", ""]),

@@ -7,6 +7,8 @@ interface TitleBandProps {
   description?: string | null;
   /** Home page style: centred, bigger title with the mascot after the first word. */
   hero?: boolean;
+  /** Actions at the far end of the title row, such as buttons and a date. */
+  end?: ReactNode;
   /** Controls that cross the bottom edge of the band, such as search and a filter. */
   controls?: ReactNode;
   /** The detail page: a row of facts above the title. */
@@ -15,7 +17,7 @@ interface TitleBandProps {
   tabs?: ReactNode;
 }
 
-export function TitleBand({ title, description, hero = false, controls, meta, tabs }: TitleBandProps) {
+export function TitleBand({ title, description, hero = false, end, controls, meta, tabs }: TitleBandProps) {
   const words = title.split(" ");
   const detail = Boolean(meta || tabs);
   const band = [
@@ -38,6 +40,26 @@ export function TitleBand({ title, description, hero = false, controls, meta, ta
             </h1>
           </div>
           {tabs}
+        </div>
+      </section>
+    );
+  }
+
+  const heading = (
+    <>
+      <h1 id="page-title" className={`${styles.title} ${styles.titlePage}`}>
+        {title}
+      </h1>
+      {description && <p className={`${styles.description} ${styles.descriptionPage}`}>{description}</p>}
+    </>
+  );
+
+  if (end) {
+    return (
+      <section className={band} aria-labelledby="page-title">
+        <div className={`${styles.bandInner} ${styles.bandRow}`}>
+          <div className={styles.bandText}>{heading}</div>
+          <div className={styles.bandEnd}>{end}</div>
         </div>
       </section>
     );

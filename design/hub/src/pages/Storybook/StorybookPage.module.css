@@ -1,0 +1,31 @@
+/* The two buttons: 4px above and 12px below, 8px apart (frame 520:22298). */
+.actions {
+  display: flex;
+  gap: var(--spaces-s4);
+  padding-block: var(--spaces-s2) var(--spaces-s6);
+}
+
+.updated {
+  composes: label-l3 from global;
+  color: var(--text-neutral-tertiary);
+  white-space: nowrap;
+}
+
+/* Fills the desktop screen at its true 1440x1024 size; the frame scales it with everything else. */
+.embed {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 0;
+  background: var(--surface-neutral-default);
+}
+
+/* Shown on the empty screen until the Storybook link is set. */
+.empty {
+  composes: label-l3 from global;
+  display: grid;
+  place-items: center;
+  block-size: 100%;
+  margin: 0;
+  color: var(--text-neutral-tertiary);
+}

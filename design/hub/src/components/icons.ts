@@ -13,6 +13,7 @@ import trafficLights from "../assets/icons/traffic-lights.svg";
 import userCircle from "../assets/icons/user-circle.svg";
 import wifi from "../assets/icons/wifi.svg";
 import arrowLeft from "../assets/icons/arrow-left.svg";
+import arrowUpRight from "../assets/icons/arrow-up-right.svg";
 import arrowRight from "../assets/icons/arrow-right.svg";
 import arrowRightBrand from "../assets/icons/arrow-right-brand.svg";
 import caretDown from "../assets/icons/caret-down.svg";
@@ -40,6 +41,7 @@ export interface IconDef {
 export const icons = {
   arrowLeft: { src: arrowLeft, size: 16 },
   arrowRight: { src: arrowRight, size: 24 },
+  arrowUpRight: { src: arrowUpRight, size: 20 },
   arrowRightBrand: { src: arrowRightBrand, size: 24 },
   caretDown: { src: caretDown, size: 20 },
   caretDownTertiary: { src: caretDownTertiary, size: 20 },

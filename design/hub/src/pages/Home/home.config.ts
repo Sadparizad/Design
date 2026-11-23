@@ -57,9 +57,14 @@ export const WORKFLOW_LINKS: Readonly<Record<string, string>> = {
   "spec.md": "#/history",
 };
 
+/**
+ * The file that holds the Storybook link, and optionally `updated: YYYY-MM-DD` in its front matter.
+ * The Storybook card opens the Hub's own Storybook page, which reads this file.
+ */
+export const STORYBOOK_PATH = "product/design-system/storybook/README.md";
+
 /** Where each Source card finds its link: a file under design/. */
 export const SOURCES: ReadonlyArray<{ name: string; path: string }> = [
-  { name: "Storybook", path: "product/design-system/storybook/README.md" },
   { name: "Figma", path: "product/design-system/figma.md" },
 ];
 

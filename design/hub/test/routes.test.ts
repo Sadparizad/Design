@@ -25,6 +25,7 @@ test("matchRoute: the five routes, plus the bare files and skills lists", () => 
   });
   assert.equal(matchRoute("#/files").id, "files");
   assert.equal(matchRoute("#/skills").id, "skills");
+  assert.deepEqual(matchRoute("#/storybook"), { id: "storybook", params: {} });
 });
 
 test("matchRoute: params are decoded; bad addresses are notFound", () => {
@@ -36,7 +37,7 @@ test("matchRoute: params are decoded; bad addresses are notFound", () => {
 });
 
 test("pageFor: the last crumb is never a link, every earlier one is", () => {
-  const hashes = ["#/", "#/history", "#/history/x", "#/files", "#/files/a", "#/skills/b", "#/nope"];
+  const hashes = ["#/", "#/history", "#/history/x", "#/files", "#/files/a", "#/skills/b", "#/storybook", "#/nope"];
   for (const hash of hashes) {
     const { crumbs } = pageFor(matchRoute(hash));
     assert.ok(crumbs.length >= 1);

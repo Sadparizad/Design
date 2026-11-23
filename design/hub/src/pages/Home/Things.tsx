@@ -55,8 +55,10 @@ function SourceCard({ name, path }: { name: string; path: string }) {
 }
 
 function SourcesGroup() {
+  const storybook = pageFor(matchRoute("#/storybook"));
   return (
     <Group id="things-sources" title="Sources">
+      <TileCard title={storybook.title} description={storybook.description} href="#/storybook" />
       {SOURCES.map((source) => (
         <SourceCard key={source.path} {...source} />
       ))}
