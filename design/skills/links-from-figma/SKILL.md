@@ -1,9 +1,9 @@
 ---
-name: figma-frame-links
+name: links-from-figma
 description: Takes one Figma link to a handoff page or section and writes a link with a one-line title for every frame into the feature's design/figma.md. Use when the designer says "figma frame links" or shares a handoff link and wants the frames listed.
 ---
 
-# figma-frame-links
+# links-from-figma
 
 Turn one Figma link into a list of frames. Each frame gets a one-line title and its own link, and the list goes into the feature's `design/figma.md`. Later, an agent can read that file and go through the handoff screen by screen, with a link to every frame. Never invent what a frame shows.
 

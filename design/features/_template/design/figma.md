@@ -7,6 +7,6 @@ One line for each Figma file, in this form.
 
 ## Handoff frames
 
-One line for each frame in the handoff, in reading order. The `figma-frame-links` skill fills this list from one Figma link.
+One line for each frame in the handoff, in reading order. The `links-from-figma` skill fills this list from one Figma link.
 
 - <One-line title>: [Figma frame](<link>)
