@@ -25,6 +25,8 @@ interface TabControlProps {
   /** Names the group for screen readers, for example "View". */
   label: string;
   variant?: TabVariant;
+  /** `segmented` only: stretch to the full width, each tab taking an equal share. */
+  fill?: boolean;
   /** `filter` only: the wider chips used by Sizes (20px across, not 12px). */
   spacious?: boolean;
   /** `page` only: each tab gets an id and points at the panel it shows. See `tabId`. */
@@ -44,6 +46,7 @@ export function TabControl({
   label,
   variant = "segmented",
   spacious = false,
+  fill = false,
   panelId,
 }: TabControlProps) {
   const list = useRef<HTMLDivElement>(null);
@@ -70,7 +73,9 @@ export function TabControl({
     list.current?.querySelectorAll<HTMLElement>(`[role="${itemRole}"]`)[next]?.focus();
   }
 
-  const track = [styles.tabs, styles[variant], spacious && styles.spacious].filter(Boolean).join(" ");
+  const track = [styles.tabs, styles[variant], spacious && styles.spacious, fill && styles.fill]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div

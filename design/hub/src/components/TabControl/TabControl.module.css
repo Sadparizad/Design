@@ -18,7 +18,7 @@
   border: 0;
   border-radius: var(--radius-r6);
   background: var(--surface-neutral-secondary);
-  color: var(--text-neutral-secondary);
+  color: var(--text-neutral-tertiary);
   cursor: pointer;
   transition: background-color var(--motion-hover), color var(--motion-hover), box-shadow var(--motion-hover);
 }
@@ -31,6 +31,18 @@
 .tabSelected:hover {
   background: var(--surface-neutral-default);
   box-shadow: var(--shadow-tab-active);
+  color: var(--text-neutral-secondary);
+}
+
+/* Full width: the track fills its row and every tab takes the same share (node 565:18192). */
+.fill {
+  display: flex;
+  inline-size: 100%;
+}
+
+.fill .tab {
+  flex: 1;
+  min-inline-size: 0;
 }
 
 .content {

@@ -11,12 +11,22 @@
   box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
 }
 
+/* The bar: time or traffic lights on the start, a 32px upright-arrow button on the end
+   (nodes 565:18063 and 565:18077). The signal, wifi, battery and address icons are hidden there. */
 .bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   inline-size: 100%;
-  padding: var(--frame-bar-padding-block) var(--frame-bar-padding-inline);
+  padding: var(--frame-bar-padding);
+}
+
+.mobile .bar {
+  --frame-bar-padding: var(--frame-bar-padding-mobile);
+}
+
+.desktop .bar {
+  --frame-bar-padding: var(--frame-bar-padding-desktop);
 }
 
 .time {
@@ -26,16 +36,23 @@
   color: var(--text-neutral-primary);
 }
 
-.glyphs {
+.open {
   display: flex;
-  align-items: flex-end;
-  gap: 6.4px;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spaces-s4);
+  border-radius: var(--radius-r5);
+  background: var(--surface-neutral-default);
+  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
+  transition: background-color var(--motion-hover);
 }
 
-.address {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--frame-bar-gap);
+a.open {
+  cursor: pointer;
+}
+
+a.open:hover {
+  background: var(--surface-neutral-secondary);
 }
 
 /* The screen a variant renders into. Empty on purpose: it shows the page grey until one does. */

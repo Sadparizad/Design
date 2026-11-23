@@ -24,6 +24,20 @@ button.card {
   gap: var(--spaces-s15);
   padding: var(--spaces-s11) var(--spaces-s11) var(--spaces-s12);
   border-radius: var(--radius-r8);
+  transition: box-shadow var(--motion-hover);
+}
+
+.tile > * {
+  transition: translate var(--motion-hover);
+}
+
+/* Hover (links only): the inner bottom edge grows 2px and the content rises 2px. */
+a.tile:hover {
+  --edge: var(--card-edge-tile-hover);
+}
+
+a.tile:hover > * {
+  translate: 0 calc(var(--card-lift-tile-hover) * -1);
 }
 
 /* List rows: columns across, arrow at the end. */
@@ -33,6 +47,20 @@ button.card {
   gap: var(--spaces-s15);
   padding: var(--spaces-s8) var(--spaces-s8) var(--spaces-s9) var(--spaces-s10);
   border-radius: var(--radius-r7);
+  transition: box-shadow var(--motion-hover);
+}
+
+.row > * {
+  transition: translate var(--motion-hover);
+}
+
+/* Hover (links only), as on the home tiles: the edge grows 2px and the content rises 2px. */
+a.row:hover {
+  --edge: var(--card-edge-row-hover);
+}
+
+a.row:hover > * {
+  translate: 0 calc(var(--card-lift-tile-hover) * -1);
 }
 
 /* Sidebar entries: flat until selected. */

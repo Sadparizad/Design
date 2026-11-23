@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useDocument } from "../../api/documents.ts";
 import { STATIC } from "../../lib/staticMode.ts";
+import { downloadText } from "../../lib/download.ts";
 import { Button } from "../../components/Button/Button.tsx";
+import { Icon } from "../../components/Icon.tsx";
 import { CodeEditor } from "../../components/CodeEditor/CodeEditor.tsx";
 import { Markdown } from "../../components/Markdown/Markdown.tsx";
 import { TabControl, type TabItem } from "../../components/TabControl/TabControl.tsx";
@@ -72,33 +74,43 @@ function Loaded({ entry, title, initial }: PaneProps & { initial: ReadResult }) 
   const [mode, setMode] = useState<Mode>("preview");
   const draft = useDraft(entry.path, initial);
   const saving = draft.save.phase === "saving";
+  // The file keeps its own name on disk: AGENT.md, SKILL.md.
+  const fileName = entry.path.slice(entry.path.lastIndexOf("/") + 1);
 
   return (
     <div className={`${styles.pane} ${mode === "edit" ? styles.paneEdit : ""}`}>
       <div className={styles.header}>
-        <Summary title={title} description={entry.description} />
-        <div className={styles.controlsGroup}>
-          <div className={styles.controls}>
-            <TabControl items={MODES} value={mode} onChange={(id) => setMode(id as Mode)} label="View" />
+        <div className={styles.top}>
+          <Summary title={title} description={entry.description} />
+          <div className={styles.actions}>
             {mode === "edit" && (
               <Button disabled={!draft.dirty || saving} onClick={draft.submit}>
-                {saving ? "Saving…" : "Save Changes"}
+                {saving ? "Saving…" : "Save changes"}
               </Button>
             )}
+            <Button
+              variant="tertiary"
+              iconOnly
+              aria-label={`Download ${fileName}`}
+              onClick={() => downloadText(fileName, draft.text)}
+            >
+              <Icon name="arrowLineDown" />
+            </Button>
           </div>
-          <SaveNotice state={draft.save} />
-          {draft.save.phase === "conflict" && (
-            <ConflictPanel
-              title={title}
-              conflict={draft.save}
-              mine={draft.text}
-              onKeepMine={draft.keepMine}
-              onUseDisk={draft.adoptDisk}
-              onKeepEditing={draft.keepEditing}
-              onRetryDisk={draft.retryDisk}
-            />
-          )}
         </div>
+        <TabControl fill items={MODES} value={mode} onChange={(id) => setMode(id as Mode)} label="View" />
+        <SaveNotice state={draft.save} />
+        {draft.save.phase === "conflict" && (
+          <ConflictPanel
+            title={title}
+            conflict={draft.save}
+            mine={draft.text}
+            onKeepMine={draft.keepMine}
+            onUseDisk={draft.adoptDisk}
+            onKeepEditing={draft.keepEditing}
+            onRetryDisk={draft.retryDisk}
+          />
+        )}
       </div>
 
       {mode === "edit" ? (

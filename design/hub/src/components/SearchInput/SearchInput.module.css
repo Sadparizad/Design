@@ -15,7 +15,7 @@
   border: 0;
   outline: 0;
   background: transparent;
-  color: var(--text-neutral-primary);
+  color: var(--text-neutral-secondary);
 }
 
 .input::placeholder {

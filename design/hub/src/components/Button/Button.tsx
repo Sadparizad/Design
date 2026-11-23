@@ -2,11 +2,11 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
 interface Shared {
-  /** primary: the black button (Save Changes). secondary: white with a border. */
-  variant?: "primary" | "secondary";
+  /** primary: the black button (Save changes). secondary: white with a border. tertiary: warm grey, no border. */
+  variant?: "primary" | "secondary" | "tertiary";
   /** compact: 10px by 14px padding and a 12px radius, 40px tall. */
   size?: "default" | "compact";
-  /** Only an icon inside: a 40px square when compact. Give it an aria-label. */
+  /** Only an icon inside: a 48px square, or 40px when compact. Give it an aria-label. */
   iconOnly?: boolean;
 }
 

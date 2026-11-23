@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createDataLayer } from "../src/data/index.ts";
+import { FIGMA_PATH, STORYBOOK_PATH } from "../src/pages/Home/home.config.ts";
 
 const hubDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const out = path.join(hubDir, "dist", "api");
@@ -27,5 +28,11 @@ for (const kind of ["files", "skills"] as const) {
     await write(`document/${e.path}`, await data.readDocument(e.path));
     documents++;
   }
+}
+// Pages that read one file by its path, outside the Files and Skills lists: the Figma page
+// (the cards come from figma.md) and the Storybook page (its link comes from its README).
+for (const rel of [FIGMA_PATH, STORYBOOK_PATH]) {
+  await write(`document/${rel}`, await data.readDocument(rel));
+  documents++;
 }
 console.log(`Snapshot: ${features.length} features, ${documents} documents -> dist/api`);

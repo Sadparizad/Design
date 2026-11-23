@@ -12,6 +12,8 @@ import textAlignLeft from "../assets/icons/text-align-left.svg";
 import trafficLights from "../assets/icons/traffic-lights.svg";
 import userCircle from "../assets/icons/user-circle.svg";
 import wifi from "../assets/icons/wifi.svg";
+import arrowLineDown from "../assets/icons/arrow-line-down.svg";
+import arrowUpRightSmall from "../assets/icons/arrow-up-right-small.svg";
 import arrowLeft from "../assets/icons/arrow-left.svg";
 import arrowUpRightLarge from "../assets/icons/arrow-up-right-large.svg";
 import arrowUpRight from "../assets/icons/arrow-up-right.svg";
@@ -42,7 +44,9 @@ export interface IconDef {
 export const icons = {
   arrowLeft: { src: arrowLeft, size: 16 },
   arrowRight: { src: arrowRight, size: 24 },
+  arrowLineDown: { src: arrowLineDown, size: 20 },
   arrowUpRight: { src: arrowUpRight, size: 20 },
+  arrowUpRightSmall: { src: arrowUpRightSmall, size: 16 },
   arrowUpRightLarge: { src: arrowUpRightLarge, size: 24 },
   arrowRightBrand: { src: arrowRightBrand, size: 24 },
   caretDown: { src: caretDown, size: 20 },

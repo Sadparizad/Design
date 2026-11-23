@@ -9,14 +9,16 @@ interface DeviceFrameProps {
   /** What renders into the screen. Empty until a variant is shown there. */
   children?: ReactNode;
   frameRef?: Ref<HTMLDivElement>;
+  /** Where the upright arrow opens this preview, in a new tab. Without it the arrow is only drawn. */
+  openHref?: string;
 }
 
 /**
- * A device mock: a status bar, then the screen a variant renders into. The screen is exactly
+ * A device mock: a bar with the upright arrow, then the screen a variant renders into. The screen is exactly
  * the size product-prd.md gives (Mobile 384x760, Desktop 1440x1024); the tokens hold the numbers.
  * Scaling to fit is the stage's job, so the screen itself is always true size.
  */
-export function DeviceFrame({ kind, children, frameRef }: DeviceFrameProps) {
+export function DeviceFrame({ kind, children, frameRef, openHref }: DeviceFrameProps) {
   const mobile = kind === "mobile";
   return (
     <section
@@ -24,25 +26,22 @@ export function DeviceFrame({ kind, children, frameRef }: DeviceFrameProps) {
       className={`${styles.frame} ${mobile ? styles.mobile : styles.desktop}`}
       aria-label={mobile ? "Mobile preview" : "Desktop preview"}
     >
-      <div className={styles.bar} aria-hidden="true">
-        {mobile ? (
-          <>
-            <span className={styles.time}>9:41</span>
-            <span className={styles.glyphs}>
-              <Icon name="signal" />
-              <Icon name="wifi" />
-              <Icon name="battery" />
-            </span>
-          </>
+      <div className={styles.bar}>
+        {mobile ? <span className={styles.time} aria-hidden="true">9:41</span> : <Icon name="trafficLights" />}
+        {openHref ? (
+          <a
+            className={styles.open}
+            href={openHref}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Open the ${mobile ? "mobile" : "desktop"} preview in a new tab`}
+          >
+            <Icon name="arrowUpRightSmall" />
+          </a>
         ) : (
-          <>
-            <Icon name="trafficLights" />
-            <span className={styles.address}>
-              <Icon name="arrowCircleDown" />
-              <Icon name="export" />
-              <Icon name="plus" />
-            </span>
-          </>
+          <span className={styles.open} aria-hidden="true">
+            <Icon name="arrowUpRightSmall" />
+          </span>
         )}
       </div>
       <div className={styles.screen} data-screen={kind}>

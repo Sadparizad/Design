@@ -32,6 +32,16 @@
   background: var(--surface-neutral-tertiary);
 }
 
+/* Warm grey, no border (the download button, node 565:18424). */
+.tertiary {
+  background: var(--surface-neutral-tertiary);
+  color: var(--text-neutral-primary);
+}
+
+.tertiary:hover:not(:disabled) {
+  background: var(--surface-neutral-tertiary-hover);
+}
+
 .button:disabled {
   opacity: 0.4;
   cursor: default;
@@ -44,8 +54,12 @@
   text-decoration: none;
 }
 
-/* An icon alone: 10px around a 20px icon, so a 40px square. */
+/* An icon alone: 14px around a 20px icon is a 48px square; compact is 10px, a 40px square. */
 .iconOnly {
+  padding: var(--spaces-s7);
+}
+
+.compact.iconOnly {
   padding: var(--spaces-s5);
 }
 
