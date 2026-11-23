@@ -92,6 +92,9 @@
   --text-brand-primary: #fa541c; /* Text/Brand/Primary */
 
   --border-neutral-secondary: #ece9e6; /* Border/Neutral/Secondary */
+  /* Hover border of a field (DoneUI Text Input, node 472:2494). The Hub file has no value for it
+     yet; this is the same warm step as Surface/Neutral/Tertiary Hover. */
+  --border-neutral-secondary-hover: #d6cfc9;
   --border-brand-strong: #fa541c; /* Border/Brand/Strong */
 
   --icon-neutral-secondary: #43392f; /* Icon/Neutral/Secondary */
@@ -124,6 +127,7 @@
   --card-edge-tile-hover: 8px;
   --card-lift-tile-hover: 2px;
   --card-edge-row: 4px;
+  --card-edge-row-hover: 6px;
   --card-edge-item: 3px;
   /* Step number circle in the workflow paragraph (node 506:14159): `border-2`, 24x24. */
   --step-marker-border: 2px;
@@ -156,8 +160,7 @@
   --frame-mobile-height: 760px;
   --frame-desktop-width: 1440px;
   --frame-desktop-height: 1024px;
-  /* The status bar above each screen, as drawn in the mock (nodes 500:33790 and 500:33793). */
-  --frame-bar-padding-inline: 12px;
-  --frame-bar-padding-block: 14px;
-  --frame-bar-gap: 12.8px;
+  /* The bar above each screen, as drawn in the mock (nodes 565:18063 and 565:18077). */
+  --frame-bar-padding-mobile: 6px 4px 6px 12px;
+  --frame-bar-padding-desktop: 8px 6px 8px 12px;
 }

@@ -11,9 +11,23 @@
     var(--shadow-input-100);
 }
 
-.field:focus-within {
-  outline: calc(var(--border-b1) * 2) solid var(--border-brand-strong);
-  outline-offset: var(--spaces-s1);
+/* States from DoneUI Text Input (Medium, nodes 472:2449 to 472:2584): the 1px border turns a
+   darker warm grey on hover and orange on focus. Typed text is Text/Neutral/Secondary. */
+.field {
+  transition: box-shadow var(--motion-hover);
+}
+
+.field:hover {
+  box-shadow:
+    inset 0 0 0 var(--border-b1) var(--border-neutral-secondary-hover),
+    var(--shadow-input-100);
+}
+
+.field:focus-within,
+.field:focus-within:hover {
+  box-shadow:
+    inset 0 0 0 var(--border-b1) var(--border-brand-strong),
+    var(--shadow-input-100);
 }
 
 /* The workflow dropdown: a pill that is only as wide as its label. */
@@ -23,5 +37,18 @@
   border-radius: var(--radius-r99);
   box-shadow:
     inset 0 0 0 var(--border-b1) var(--border-neutral-secondary),
+    0 2px 4px -2px var(--effects-shadow-neutral-subtle);
+}
+
+.field.pill:hover {
+  box-shadow:
+    inset 0 0 0 var(--border-b1) var(--border-neutral-secondary-hover),
+    0 2px 4px -2px var(--effects-shadow-neutral-subtle);
+}
+
+.field.pill:focus-within,
+.field.pill:focus-within:hover {
+  box-shadow:
+    inset 0 0 0 var(--border-b1) var(--border-brand-strong),
     0 2px 4px -2px var(--effects-shadow-neutral-subtle);
 }

@@ -18,16 +18,32 @@
   gap: var(--spaces-s10);
 }
 
+/* Summary and actions share a row; the tab sits 20px under them (frame 565:18187). */
 .header {
   display: flex;
   flex-direction: column;
-  gap: var(--spaces-s13);
+  gap: var(--spaces-s10);
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spaces-s8);
+}
+
+.actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--spaces-s4);
 }
 
 .summary {
   display: flex;
+  flex: 1;
   flex-direction: column;
   gap: var(--spaces-s2);
+  min-inline-size: 0;
 }
 
 .title {
@@ -39,19 +55,6 @@
 .description {
   composes: body-b4 from global;
   color: var(--text-neutral-secondary);
-}
-
-.controlsGroup {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spaces-s6);
-}
-
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--spaces-s8);
 }
 
 .note {

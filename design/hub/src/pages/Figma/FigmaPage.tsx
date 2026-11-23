@@ -39,7 +39,7 @@ export function FigmaPage({ page }: { page: PageMeta }) {
               icon="arrowUpRightLarge"
               hug
               href={link.href ?? undefined}
-              external
+              external={link.href !== null}
             />
           ))}
         </div>

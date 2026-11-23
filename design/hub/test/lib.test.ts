@@ -26,6 +26,11 @@ test("listVariants: id to label, in file order, and D is not skipped", () => {
   assert.deepEqual(list.map((v) => v.title), ["A - Table", "B - Cards", "C - Form", "D - Stepper", "E - Wizard"]);
 });
 
+test("listVariants: the tab shows the id and only the label's first word", () => {
+  const list = listVariants({ A: "Preset amounts", B: "  Custom   amount " });
+  assert.deepEqual(list.map((v) => v.title), ["A - Preset", "B - Custom"]);
+});
+
 test("listVariants: no label shows the id; empty, array and broken data give none", () => {
   assert.deepEqual(listVariants({ A: "" })[0].title, "A");
   assert.deepEqual(listVariants({ A: 3 })[0].title, "A");

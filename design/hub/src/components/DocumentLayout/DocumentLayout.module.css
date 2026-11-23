@@ -1,27 +1,26 @@
-/* Three tracks across the 1440px frame: a 216px sidebar, the 800px document, and an empty 216px
-   track on the other side so the document stays centred under the title. Gaps are 40px.
-   The layout breaks out of the 800px column, centred on it. */
+/* Files / Edit (frame 565:18163): inside the 800px column, a 216px sidebar, a 40px gap and the
+   544px document. */
 .layout {
-  --frame: calc(var(--layout-sidebar) * 2 + var(--spaces-s15) * 2 + var(--layout-column));
   display: grid;
-  grid-template-columns: var(--layout-sidebar) minmax(0, var(--layout-column)) var(--layout-sidebar);
+  grid-template-columns: var(--layout-sidebar) minmax(0, 1fr);
   column-gap: var(--spaces-s15);
   align-items: start;
-  position: relative;
-  inset-inline-start: 50%;
-  translate: -50% 0;
-  inline-size: min(var(--frame), 100vw - var(--spaces-s8) * 2);
   padding-block: var(--spaces-s15);
 }
 
-/* Too narrow for the empty track: sidebar and document only, centred together. */
-@media (max-width: 1343px) {
+/* Too narrow for two columns: the list sits above the document. */
+@media (max-width: 720px) {
   .layout {
-    grid-template-columns: var(--layout-sidebar) minmax(0, 1fr);
-    inline-size: min(
-      var(--layout-sidebar) + var(--spaces-s15) + var(--layout-column),
-      100vw - var(--spaces-s8) * 2
-    );
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--spaces-s11);
+  }
+
+  .sidebar {
+    padding-inline-end: 0;
+  }
+
+  .sidebar::after {
+    display: none;
   }
 }
 
