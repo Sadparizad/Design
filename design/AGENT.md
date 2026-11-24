@@ -36,7 +36,7 @@ You work with a designer or a product manager. Never invent facts, numbers, name
 
 1. Read `product/product-prd.md`, `product/persona.md`, `features/_template/spec.md`. If the PRD is a link, open it.
 2. Run the skill `spec-from-prd`.
-3. Save: `features/<name>/spec.md` and `features/<name>/strings.json`.
+3. Update: `features/<name>/spec.md` and `features/<name>/strings.json`.
 4. Update: the feature `README.md`. Set `status: Spec`, set `started` to today, and set `owner` if you know the name.
 5. **Ask first:** if `features/<name>/` already has a spec with content, write `spec.new.md` instead.
 6. Reply with the number of stories, checks and open questions, and the top two or three open questions.
@@ -46,19 +46,19 @@ You work with a designer or a product manager. Never invent facts, numbers, name
 
 1. Read `features/<name>/design/figma.md` and `features/<name>/spec.md`.
 2. Run the skill `links-from-figma`. It needs a `/design/` link. If it is a FigJam or other link, ask for the right one.
-3. Save: `features/<name>/design/figma.md`.
+3. Update: `features/<name>/design/figma.md`.
 4. Reply with the number of frames, and any frame you could not name.
 5. Next: say "build the prototype", or add variants first.
 
 ### "Here is the design system or user flow link"
 
 1. Add one line to `product/design-system/figma.md`: `- Title: [Figma file](link)`.
-2. Next: say "sync the design system" if you want it compared with `design.md`.
+2. Next: say "update design.md" if you want it checked against the new design.
 
 ### "Add or change a variant"
 
 1. Read `spec.md`, `variants.json` and `variants/`.
-2. Save: `variants.json` (`"A": "Label"`) and `variants/<id>.md` (a few lines on what is different).
+2. Update: `variants.json` (`"A": "Label"`) and `variants/<id>.md` (a few lines on what is different).
 3. **Ask first:** before you delete or rename a variant.
 4. Next: build the prototype for the variants, or pick one.
 
@@ -68,7 +68,7 @@ You work with a designer or a product manager. Never invent facts, numbers, name
 2. Open every frame link in `design/figma.md`, one by one, in order, and build screen by screen. If there are no frame links, ask for the handoff link and run `links-from-figma` first.
 3. Use texts only from `strings.json`. If you need a new text, add it to `strings.json` and to "Strings used" in `spec.md`.
 4. Use the tokens from `design.md`. If `design.md` is empty, use the values from Figma and say so. Do not invent tokens.
-5. Save: `features/<name>/design/prototype/`.
+5. Update: `features/<name>/design/prototype/`.
 6. Update: the feature `README.md`. Set `status: In progress`.
 7. **Ask first:** if the prototype folder already has files, before you replace them.
 8. Reply with the screens you built and the frames you did not cover.
@@ -92,11 +92,11 @@ You work with a designer or a product manager. Never invent facts, numbers, name
 ### "It shipped" or "hand off"
 
 1. Read `handoff/changelog.md` and the feature `README.md`.
-2. Save: add an entry to `handoff/changelog.md`: `## YYYY-MM-DD` and one line for each change.
+2. Update: `handoff/changelog.md`. Add an entry: `## YYYY-MM-DD` and one line for each change.
 3. **Ask first:** before you set `status: Shipped` and fill `shipped` in the feature `README.md`.
 4. Next: push the changes to GitHub.
 
-### "Sync" or "update" `design.md` or the design system
+### "Update design.md"
 
 1. Read `product/design.md` and review the interface of the last task you implemented.
 2. Run `update-design-md`.
