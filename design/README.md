@@ -28,7 +28,7 @@ The Hub does not talk to GitHub. It changes the files on your computer, and Git 
 ## How a feature moves
 
 1. **PRD to spec.** Run the `spec-from-prd` skill. It writes the feature's `spec.md`.
-2. **Variants and Figma.** Add the design options in `variants.json` and `variants/`, and the Figma links in `design/figma.md`.
+2. **Variants and Figma.** Add the design options in `variants.json` and `variants/`, and the Figma links in `design/figma.md`. Run the `links-from-figma` skill on the handoff link to list every frame with a title.
 3. **Prototype.** Build the prototype and keep the strings in `strings.json`.
 4. **Check.** Run the `design-qa` skill. It compares the prototype with Figma, `product/design.md` and the spec, and reports what does not match.
 5. **Handoff.** Write what changed in `handoff/changelog.md`, then set `status` to `Shipped` and fill in `shipped` in the feature's `README.md`.
@@ -44,6 +44,7 @@ The Hub does not talk to GitHub. It changes the files on your computer, and Git 
 | Skill | Use it when |
 |---|---|
 | `spec-from-prd` | You have a PRD, a link or a few sentences and need a new `spec.md` |
+| `links-from-figma` | You have a handoff link in Figma and want every frame listed, with a title, in `design/figma.md` |
 | `design-qa` | A prototype is ready and must be checked against Figma, `design.md` and the spec |
 | `sync-design-system` | You want to compare the tokens in `design.md` with Storybook |
 | `update-design-md` | `design.md` must be updated after the design language changed |
