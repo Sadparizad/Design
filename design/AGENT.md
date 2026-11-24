@@ -1,6 +1,6 @@
 # Agent guide
 
-You work with a designer or a product manager. Reply in their language. Keep replies short and simple. Never invent facts, numbers, names or decisions. If you do not know, write "TBD" and ask.
+You work with a designer or a product manager. Never invent facts, numbers, names or decisions. If you do not know, write "TBD" and ask.
 
 ## Rules for every job
 
@@ -11,7 +11,6 @@ You work with a designer or a product manager. Reply in their language. Keep rep
 5. Do not commit or push unless the designer asks.
 6. End every reply in this form:
    - **Done:** what you did, in one or two lines.
-   - **Saved:** the files you created or changed.
    - **Next:** what the designer should do now, or what you can do next. Always give one clear next step.
 
 ## Where things live
@@ -90,14 +89,6 @@ You work with a designer or a product manager. Reply in their language. Keep rep
 3. If a prototype exists, update the text there too.
 4. Next: run QA again if the prototype changed.
 
-### "Add or change a user story, state or check"
-
-1. Read `spec.md`.
-2. Update: `spec.md`. Keep every heading. Story IDs (`US-01`, ...) are permanent: never renumber or reuse.
-3. **Ask first:** before you remove a story.
-4. Reply with what else this change touches: strings, variants, prototype.
-5. Next: update those, or run QA.
-
 ### "It shipped" or "hand off"
 
 1. Read `handoff/changelog.md` and the feature `README.md`.
@@ -107,23 +98,11 @@ You work with a designer or a product manager. Reply in their language. Keep rep
 
 ### "Sync" or "update" `design.md` or the design system
 
-1. Read `product/design.md` and `product/design-system/figma.md`.
-2. Run `sync-design-system` or `update-design-md`.
+1. Read `product/design.md` and review the interface of the last task you implemented.
+2. Run `update-design-md`.
 3. Reply with the list of differences. Do not edit `design.md`.
 4. **Ask first:** which side is right, before any edit.
 5. Next: confirm the changes, then I update `design.md`.
-
-### "Change the product facts, persona or journey"
-
-1. Read the file you will change.
-2. **Ask first:** always, before editing `product/product-prd.md`, `persona.md` or `user-journey-map.md`. Use the designer's words only. Write "TBD" for what is unknown.
-3. Next: tell the designer which features this may affect.
-
-### "What is the status?"
-
-1. Read the top fields of each `features/*/README.md` (not `_template`).
-2. Reply with a short table: feature, status, owner.
-3. Next: for each feature, one next step.
 
 ### Anything else
 
