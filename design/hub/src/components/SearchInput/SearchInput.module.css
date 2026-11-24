@@ -18,6 +18,18 @@
   color: var(--text-neutral-secondary);
 }
 
+/* The browser draws its own clear button (the blue X) and a search glyph inside type="search".
+   The DoneUI Text Input has neither, so both are removed. */
+.input {
+  appearance: none;
+}
+
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-decoration {
+  display: none;
+  appearance: none;
+}
+
 .input::placeholder {
   color: var(--text-neutral-subtle);
   opacity: 1;
