@@ -12,7 +12,7 @@ interface CodeEditorProps {
 }
 
 /**
- * A plain code editor: line numbers in a left gutter, monospace text, no colouring.
+ * A plain code editor: line numbers in a left gutter, text, no colouring.
  *
  * The gutter lines up with soft-wrapped text without measuring anything. A hidden copy of
  * the text is laid out as one row per line, each row holding its number and the line itself
