@@ -83,10 +83,13 @@ function Loaded({ entry, title, initial }: PaneProps & { initial: ReadResult }) 
         <div className={styles.top}>
           <Summary title={title} description={entry.description} />
           <div className={styles.actions}>
-            {mode === "edit" && (
+            {/* Always drawn. Outside Edit, and in the read-only copy, it says plain "Save" and is off. */}
+            {mode === "edit" ? (
               <Button disabled={!draft.dirty || saving} onClick={draft.submit}>
                 {saving ? "Saving…" : "Save changes"}
               </Button>
+            ) : (
+              <Button disabled>Save</Button>
             )}
             <Button
               variant="tertiary"
