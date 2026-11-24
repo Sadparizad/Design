@@ -106,11 +106,9 @@
   tab-size: 2;
 }
 
+/* No fill, no side lines, no corners, no line above or below: only the rules between rows. */
 .tableWrap {
   overflow-x: auto;
-  border-radius: var(--radius-r6);
-  box-shadow: inset 0 0 0 var(--border-b1) var(--border-neutral-secondary);
-  background: var(--surface-neutral-default);
 }
 
 .table {
@@ -129,9 +127,19 @@
   overflow-wrap: break-word;
 }
 
+/* The outer edges sit flush with the text above and below; space is only between columns. */
+.table th:first-child,
+.table td:first-child {
+  padding-inline-start: 0;
+}
+
+.table th:last-child,
+.table td:last-child {
+  padding-inline-end: 0;
+}
+
 .table th {
   color: var(--text-neutral-primary);
-  background: var(--surface-neutral-secondary);
   border-block-start: 0;
   white-space: nowrap;
 }
