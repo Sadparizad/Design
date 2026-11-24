@@ -118,7 +118,7 @@ export function FeaturePage({
         />
       }
       panel={{ id: PANEL, labelledBy: tabId(PANEL, tab) }}
-      wide={tab === "prototype" ? <PrototypeStage sizes={proto.sizes} /> : undefined}
+      wide={tab === "prototype" ? <PrototypeStage feature={ready} variant={proto.variant} sizes={proto.sizes} /> : undefined}
     >
       {tab === "spec" && <SpecTab feature={ready} />}
       {tab === "prototype" && (

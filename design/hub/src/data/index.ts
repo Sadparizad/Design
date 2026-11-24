@@ -138,6 +138,26 @@ async function walkVariants(abs: string, prefix: string, out: VariantFile[]): Pr
   }
 }
 
+/**
+ * The variants that have a built prototype: a folder under design/prototype/ named by the variant id,
+ * with an index.html in it. Sorted by code point.
+ */
+async function listPrototypes(abs: string): Promise<string[]> {
+  let entries;
+  try {
+    entries = await fs.readdir(abs, { withFileTypes: true });
+  } catch (err) {
+    if (isMissing(err)) return [];
+    throw err;
+  }
+  const out: string[] = [];
+  for (const e of entries) {
+    if (!e.isDirectory() || e.name.startsWith(".")) continue;
+    if ((await statOrNull(path.join(abs, e.name, "index.html")))?.isFile()) out.push(e.name);
+  }
+  return out.sort(byCodepoint);
+}
+
 /** Create the data layer for one design/ folder. Defaults to the folder this hub sits in. */
 export function createDataLayer(designRoot: string = defaultDesignRoot()): DataLayer {
   const root = path.resolve(designRoot);
@@ -275,7 +295,8 @@ export function createDataLayer(designRoot: string = defaultDesignRoot()): DataL
     const variants = parseJsonText(await readTextOrNull(at(`${dir}/variants.json`)));
     const variantFiles: VariantFile[] = [];
     await walkVariants(at(`${dir}/variants`), "", variantFiles);
-    return { ...summary, exists, spec, strings, variants, variantFiles };
+    const prototypes = await listPrototypes(at(`${dir}/design/prototype`));
+    return { ...summary, exists, spec, strings, variants, variantFiles, prototypes };
   }
 
   return {

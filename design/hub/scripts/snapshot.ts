@@ -35,4 +35,17 @@ for (const rel of [FIGMA_PATH, STORYBOOK_PATH]) {
   await write(`document/${rel}`, await data.readDocument(rel));
   documents++;
 }
-console.log(`Snapshot: ${features.length} features, ${documents} documents -> dist/api`);
+// Each built prototype is copied next to the page, so its own address works on GitHub Pages too.
+let prototypes = 0;
+for (const f of features) {
+  const feature = await data.readFeature(f.name);
+  for (const id of feature.prototypes) {
+    await fs.cp(
+      path.join(hubDir, "..", "features", f.name, "design", "prototype", id),
+      path.join(hubDir, "dist", "prototype", f.name, id),
+      { recursive: true, filter: (src) => !path.basename(src).startsWith(".") },
+    );
+    prototypes++;
+  }
+}
+console.log(`Snapshot: ${features.length} features, ${documents} documents, ${prototypes} prototypes -> dist`);

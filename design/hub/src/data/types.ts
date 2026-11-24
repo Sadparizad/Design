@@ -65,6 +65,8 @@ export interface Feature extends FeatureSummary {
   strings: JsonRead;
   variants: JsonRead;
   variantFiles: VariantFile[];
+  /** Variant ids that have design/prototype/<id>/index.html, so their own page can open. */
+  prototypes: string[];
 }
 
 export interface RepoStatus {

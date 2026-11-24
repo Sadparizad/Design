@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 import { defineConfig, type Connect, type Plugin } from "vite";
 import { createDataLayer } from "./src/data/index.ts";
 import { createApiHandler } from "./src/server/api.ts";
+import { createPrototypeHandler } from "./src/server/prototypes.ts";
 
 // design/ is the folder above hub/. Passed in explicitly because this file is bundled
 // by Vite before it runs, so the data module cannot work out its own location here.
@@ -11,13 +12,16 @@ const designRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".
 
 function designHubApi(): Plugin {
   const handler = createApiHandler(createDataLayer(designRoot)) as Connect.NextHandleFunction;
+  const prototypes = createPrototypeHandler(designRoot) as Connect.NextHandleFunction;
   return {
     name: "design-hub-api",
     configureServer(server) {
       server.middlewares.use(handler);
+      server.middlewares.use(prototypes);
     },
     configurePreviewServer(server) {
       server.middlewares.use(handler);
+      server.middlewares.use(prototypes);
     },
   };
 }
