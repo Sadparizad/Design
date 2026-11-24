@@ -37,7 +37,7 @@
   --spaces-s33: 160px; /* Spaces/S33 */
 
   /* ── Typography ────────────────────────────────────────────── */
-  --font-family-body: "Inter"; /* Font Family/Body */
+  --font-family-body: "Inter Display"; /* Font Family/Body */
   --font-family-display: "Inter Display"; /* Font Family/Display */
   --font-weight-medium: 500; /* Font Weight/Medium */
 
@@ -116,7 +116,7 @@
   --shadow-tab-active: 0 2px 4px -2px #10111424;
   /* Document pages (Files / Edit, nodes 513:16752 and 513:16737). The frames draw the editor in
      Inter; the brief asks for a monospace body, so the family is not a Figma value. */
-  --font-family-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --font-family-mono: var(--font-family-display);
   --list-indent: 21px; /* list items in the Preview frames use ms-[21px] */
   --editor-gutter-min: 24px; /* line-number column, node 513:16738 */
   --editor-min-height: 80px;
@@ -151,7 +151,7 @@
   --layout-hero-measure: 336px;
 
   /* ── Not Figma variables: inline code in a spec (no frame shows one) ── */
-  --font-family-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-family-mono: var(--font-family-display);
 
   /* ── Not Figma variables: the preview frames on the Prototype tab ── */
   /* Frame sizes come from product-prd.md ("Frame sizes in the shell"), not from the Figma mock,

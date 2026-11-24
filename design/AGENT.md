@@ -68,7 +68,7 @@ You work with a designer or a product manager. Never invent facts, numbers, name
 2. Open every frame link in `design/figma.md`, one by one, in order, and build screen by screen. If there are no frame links, ask for the handoff link and run `links-from-figma` first.
 3. Use texts only from `strings.json`. If you need a new text, add it to `strings.json` and to "Strings used" in `spec.md`.
 4. Use the tokens from `design.md`. If `design.md` is empty, use the values from Figma and say so. Do not invent tokens.
-5. Update: `features/<name>/design/prototype/`.
+5. Update: `features/<name>/design/prototype/<variant id>/`, one folder per variant, each a self-contained web page with an `index.html` that works on its own (relative links only). The Hub shows it in the Prototype tab and opens it alone from the arrow button.
 6. Update: the feature `README.md`. Set `status: In progress`.
 7. **Ask first:** if the prototype folder already has files, before you replace them.
 8. Reply with the screens you built and the frames you did not cover.

@@ -52,7 +52,7 @@ a.open {
 }
 
 a.open:hover {
-  background: var(--surface-neutral-secondary);
+  background: var(--surface-neutral-tertiary);
 }
 
 /* The screen a variant renders into. Empty on purpose: it shows the page grey until one does. */

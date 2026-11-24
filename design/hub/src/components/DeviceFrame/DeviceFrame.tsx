@@ -9,7 +9,7 @@ interface DeviceFrameProps {
   /** What renders into the screen. Empty until a variant is shown there. */
   children?: ReactNode;
   frameRef?: Ref<HTMLDivElement>;
-  /** Where the upright arrow opens this preview, in a new tab. Without it the arrow is only drawn. */
+  /** Where the upright arrow opens this preview on its own page, in a new tab. Without it the arrow is only drawn. */
   openHref?: string;
 }
 

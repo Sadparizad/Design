@@ -8,6 +8,8 @@ interface PreviewStageProps {
   sizes: PreviewSizes;
   /** What renders into each screen. Without it the screens stay empty. */
   screen?: ReactNode;
+  /** Where the upright arrow of a frame opens the variant on its own page. */
+  openHref?: string;
 }
 
 const KINDS: Record<PreviewSizes, DeviceKind[]> = {
@@ -26,7 +28,7 @@ interface Natural {
  * One scale for all of them keeps Mobile and Desktop in true proportion. Frames never scale
  * up past true size. What renders inside a screen still sees a real 384 or 1440 pixel viewport.
  */
-export function PreviewStage({ sizes, screen }: PreviewStageProps) {
+export function PreviewStage({ sizes, screen, openHref }: PreviewStageProps) {
   const stage = useRef<HTMLDivElement>(null);
   const frames = useRef<Partial<Record<DeviceKind, HTMLDivElement | null>>>({});
   const [natural, setNatural] = useState<Partial<Record<DeviceKind, Natural>>>({});
@@ -73,6 +75,7 @@ export function PreviewStage({ sizes, screen }: PreviewStageProps) {
             <div className={styles.scaled} style={{ transform: `scale(${scale})` }}>
               <DeviceFrame
                 kind={kind}
+                openHref={openHref}
                 frameRef={(node) => {
                   frames.current[kind] = node;
                 }}

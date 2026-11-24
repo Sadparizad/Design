@@ -5,6 +5,7 @@ import { TabControl } from "../../components/TabControl/TabControl.tsx";
 import { parseSpec } from "../../data/spec.ts";
 import type { Feature } from "../../data/types.ts";
 import { listVariants } from "../../data/variants.ts";
+import { prototypeUrl } from "../../lib/prototypeUrl.ts";
 import styles from "./Prototype.module.css";
 
 const SIZES: Array<{ id: PreviewSizes; label: string; icon?: "deviceMobileCamera" | "desktop" }> = [
@@ -29,7 +30,7 @@ export function PrototypeControls({
 }) {
   const variants = listVariants(feature.variants.data);
   const summary = feature.spec.exists ? parseSpec(feature.spec.text).summary : null;
-  const selected = variants.some((v) => v.id === variant) ? variant : (variants[0]?.id ?? "");
+  const selected = selectedVariant(feature, variant);
 
   return (
     <div className={styles.controls}>
@@ -76,12 +77,47 @@ export function PrototypeControls({
   );
 }
 
+/** The variant the tabs show: the one picked, else the first listed, else "". */
+export function selectedVariant(feature: Feature, picked: string): string {
+  const variants = listVariants(feature.variants.data);
+  return variants.some((v) => v.id === picked) ? picked : (variants[0]?.id ?? "");
+}
+
 /**
- * The preview frames. They are empty on purpose: each is the container the selected variant
- * renders into, at the size product-prd.md gives. Nothing renders into them yet.
+ * The preview frames at the size product-prd.md gives. Each one runs the selected variant's own
+ * page at true size, so it can be used like a real site. The upright arrow opens that same page
+ * alone in a new tab. A variant with no built prototype leaves the screens empty.
  */
-export function PrototypeStage({ sizes }: { sizes: PreviewSizes }) {
-  return <PreviewStage sizes={sizes} />;
+export function PrototypeStage({
+  feature,
+  variant,
+  sizes,
+}: {
+  feature: Feature;
+  variant: string;
+  sizes: PreviewSizes;
+}) {
+  const id = selectedVariant(feature, variant);
+  if (id === "") return <PreviewStage sizes={sizes} />;
+  const href = prototypeUrl(feature.name, id);
+  const built = feature.prototypes.includes(id);
+  return (
+    <PreviewStage
+      sizes={sizes}
+      openHref={href}
+      screen={
+        built ? (
+          <iframe
+            // A new frame per variant and size, so one never keeps the other's page or scroll.
+            key={`${id}`}
+            className={styles.prototype}
+            src={href}
+            title={`Variant ${id}`}
+          />
+        ) : undefined
+      }
+    />
+  );
 }
 
 export function usePrototypeState() {

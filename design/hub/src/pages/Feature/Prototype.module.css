@@ -58,3 +58,12 @@
     flex-direction: column;
   }
 }
+
+/* A variant's own page, filling the screen. The screen is already the true viewport size. */
+.prototype {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  border: 0;
+  background: var(--surface-neutral-default);
+}
